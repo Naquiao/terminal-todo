@@ -1,0 +1,11 @@
+name: Open and close the task details dialog
+page: /
+page_path: app/page.tsx
+task: Opening and closing the task details dialog
+steps:
+- Navigate to the home page
+- Click on a task to open its details dialog
+- Verify the dialog opens with the correct task information
+- Close the dialog using the close button or escape key
+- Verify the dialog closes properly
+expected_result: The dialog should open and close correctly

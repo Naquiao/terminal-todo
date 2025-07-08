@@ -1,0 +1,12 @@
+name: Create a task with a specific category
+page: /
+page_path: app/page.tsx
+task: Creating a new task with a specific category assigned
+steps:
+- Navigate to the home page
+- Click the '+' button to add a new task
+- Enter task details in the input field
+- Select a specific category from the category dropdown
+- Save the task
+- Verify the new task appears with the correct category label
+expected_result: A new task should be created with the selected category
