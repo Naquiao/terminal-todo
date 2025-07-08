@@ -1,0 +1,8 @@
+base_url: http://localhost:3000
+credentials:
+- id: admin
+  password: admin
+  username: admin
+project_id: Lv3mWWYZAuEMALsD4845
+project_name: terminal-todo
+x-vercel-protection-bypass: 3xc7Sasouuf9W7NjHbvvCbGCg9EzLYOG

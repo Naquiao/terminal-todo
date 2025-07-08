@@ -1,0 +1,10 @@
+name: Search for specific task
+page: /
+page_path: app/page.tsx
+task: Searching for a specific task by keyword
+steps:
+- Navigate to the home page
+- Locate the search input field
+- Enter a search keyword
+- Verify only tasks containing the keyword are displayed
+expected_result: Only tasks containing the search keyword should be displayed
