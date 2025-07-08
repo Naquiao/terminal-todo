@@ -1,0 +1,17 @@
+name: Terminal Todo Manager - Error Handling for Invalid Commands
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the error handling for invalid or malformed commands
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'invalid_command' and press Enter
+- Verify that an error message is displayed indicating that the command is not recognized
+- Type 'create' (without required parameters) and press Enter
+- Verify that an error message is displayed indicating missing required parameters
+- Type 'delete' (without a task ID) and press Enter
+- Verify that an error message is displayed indicating a missing task ID parameter
+- Type 'create "Test task" --invalid_flag "value"' and press Enter
+- Verify that an error message is displayed about the invalid flag
+expected_result: The terminal should display appropriate error messages for invalid
+  commands

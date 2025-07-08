@@ -1,0 +1,12 @@
+name: Terminal Todo Manager - GUI Mode Switch
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the functionality to switch from terminal to GUI mode
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'gui' and press Enter
+- Verify that the application transitions to GUI mode or displays a message about
+  accessing GUI mode
+- Verify that the terminal interface is no longer the primary interaction method
+expected_result: The application should successfully transition to GUI mode

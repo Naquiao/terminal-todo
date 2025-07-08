@@ -62,6 +62,27 @@ export default function LiquidTerminalTodo() {
   const [editDescription, setEditDescription] = useState("")
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
 
+  // Load tasks from localStorage on mount
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("todo-tasks")
+      if (stored) {
+        setTasks(JSON.parse(stored))
+      }
+    } catch (error) {
+      console.warn("Failed to load tasks from localStorage:", error)
+    }
+  }, [])
+
+  // Save tasks to localStorage when they change
+  useEffect(() => {
+    try {
+      localStorage.setItem("todo-tasks", JSON.stringify(tasks))
+    } catch (error) {
+      console.warn("Failed to save tasks to localStorage:", error)
+    }
+  }, [tasks])
+
   useEffect(() => {
     const updateTime = () => {
       const now = new Date()
@@ -181,10 +202,18 @@ export default function LiquidTerminalTodo() {
               </div>
               <div className="flex items-center gap-2 text-purple-400">
                 <Terminal className="w-4 h-4" />
-                <span className="text-sm">~/dev/advanced-todo-manager</span>
+                <span className="text-sm">~/dev/advanced-todo-manager [GUI MODE]</span>
               </div>
             </div>
-            <div className="text-purple-400 text-sm font-mono">{currentTime}</div>
+            <div className="flex items-center gap-2">
+              <Button 
+                onClick={() => window.location.href = '/terminal'}
+                className="text-xs bg-purple-600 hover:bg-purple-700 text-white"
+              >
+                Open Terminal
+              </Button>
+              <div className="text-purple-400 text-sm font-mono">{currentTime}</div>
+            </div>
           </div>
         </div>
 
@@ -542,7 +571,7 @@ export default function LiquidTerminalTodo() {
           {/* Terminal Footer */}
           <div className="mt-6 pt-4 border-t border-white/20">
             <div className="text-white/40 text-xs font-mono">
-              {">"} Session active • Advanced features enabled • Type 'help' for commands
+              {">"} Session active • Advanced features enabled • GUI Mode • Open Terminal for CLI commands
             </div>
           </div>
         </div>

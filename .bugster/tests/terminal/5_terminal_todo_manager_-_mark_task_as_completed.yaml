@@ -1,0 +1,18 @@
+name: Terminal Todo Manager - Mark Task as Completed
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the functionality to mark a task as completed
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'create "Completion test task" --project "Work" --priority "Medium"' and press
+  Enter
+- Verify that a success message is displayed confirming task creation
+- Type 'drop' to view the task list
+- Note the ID of the newly created task
+- Type 'complete {task_id}' using the ID from the previous step
+- Verify that a success message is displayed confirming the task is marked as completed
+- Type 'drop' to view the task list again
+- Verify that the task appears with a completed status or indicator
+expected_result: The task should be marked as completed and appear with a completed
+  status

@@ -1,0 +1,14 @@
+name: Terminal Todo Manager - Create Task Command
+page: Terminal Todo Page
+page_path: app/terminal/page.tsx
+task: Test the functionality to create a new task using the terminal interface
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'create "Buy groceries" --project "Personal" --priority "High"' and press Enter
+- Verify that a success message is displayed confirming task creation
+- Type 'drop' to view the task list
+- Verify that the newly created task appears in the list with correct priority (HIGH)
+  and category (personal)
+expected_result: A new task should be created and displayed in the terminal output
+  with the correct details

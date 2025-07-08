@@ -1,0 +1,19 @@
+name: Terminal Todo Manager - Command History Navigation
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the functionality to navigate through command history
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'create "History test 1" --project "Personal"' and press Enter
+- Type 'create "History test 2" --project "Work"' and press Enter
+- Press the Up Arrow key
+- Verify that the previous command 'create "History test 2" --project "Work"' appears
+  in the input field
+- Press the Up Arrow key again
+- Verify that the command 'create "History test 1" --project "Personal"' appears in
+  the input field
+- Press the Down Arrow key
+- Verify that the command 'create "History test 2" --project "Work"' appears in the
+  input field again
+expected_result: Users should be able to access and reuse previously entered commands

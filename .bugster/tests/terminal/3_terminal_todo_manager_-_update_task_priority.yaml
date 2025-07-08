@@ -1,0 +1,17 @@
+name: Terminal Todo Manager - Update Task Priority
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the functionality to update a task's priority using the terminal interface
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'create "Priority test task" --project "Personal" --priority "Low"' and press
+  Enter
+- Verify that a success message is displayed confirming task creation
+- Type 'drop' to view the task list
+- Note the ID of the newly created task
+- Type 'update {task_id} --priority "High"' using the ID from the previous step
+- Verify that a success message is displayed confirming the update
+- Type 'drop' to view the task list again
+- Verify that the task now displays with HIGH priority
+expected_result: The task's priority should be updated successfully

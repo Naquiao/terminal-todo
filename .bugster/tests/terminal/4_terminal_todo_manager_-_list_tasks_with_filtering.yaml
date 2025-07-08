@@ -1,0 +1,18 @@
+name: Terminal Todo Manager - List Tasks with Filtering
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the functionality to list tasks with filtering options
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'create "Work filter test" --project "Work" --priority "High"' and press Enter
+- Type 'create "Personal filter test" --project "Personal" --priority "Medium"' and
+  press Enter
+- Type 'drop --project "Work"' to filter tasks
+- Verify that only Work tasks are displayed including "Work filter test"
+- Verify that Personal tasks like "Personal filter test" are not displayed
+- Type 'drop --priority "High"' to filter tasks by priority
+- Verify that only High priority tasks are displayed including "Work filter test"
+- Type 'drop' to view all tasks again
+- Verify that all created tasks are displayed in the list
+expected_result: Only tasks matching the filter criteria should be displayed

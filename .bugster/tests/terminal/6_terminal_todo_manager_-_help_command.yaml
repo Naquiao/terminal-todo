@@ -1,0 +1,13 @@
+name: Terminal Todo Manager - Help Command
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the help command functionality in the terminal interface
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'help' and press Enter
+- Verify that a list of available commands is displayed
+- Verify that each command has a description explaining its functionality
+- Verify that common commands like 'create', 'delete', 'update', 'drop', and 'complete'
+  are included in the help list
+expected_result: A list of available commands with their descriptions should be displayed

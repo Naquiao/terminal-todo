@@ -1,0 +1,15 @@
+name: Verify task persistence across page reloads
+page: Home Page
+page_path: app/page.tsx
+task: Testing that tasks persist in localStorage after page reload
+steps:
+- Navigate to the home page
+- Create a new task by clicking the 'New Task' button
+- Enter a unique task description (e.g., 'Test localStorage persistence')
+- Select a category from the dropdown
+- Click 'Save' button
+- Verify the new task appears in the list
+- Refresh the page (or simulate page reload)
+- Verify the previously created task still appears in the list with correct description
+  and category
+expected_result: Tasks should be preserved and displayed correctly after page reload

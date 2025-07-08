@@ -1,0 +1,17 @@
+name: Terminal Todo Manager - Delete Task Command
+page: terminal
+page_path: app/terminal/page.tsx
+task: Test the functionality to delete an existing task using the terminal interface
+steps:
+- Navigate to the terminal page
+- Verify the terminal interface is displayed with the welcome message
+- Type 'create "Test delete task" --project "Work" --priority "Medium"' and press
+  Enter
+- Verify that a success message is displayed confirming task creation
+- Type 'drop' to view the task list
+- Note the ID of the newly created task
+- Type 'delete {task_id}' using the ID from the previous step
+- Verify that a success message is displayed confirming task deletion
+- Type 'drop' to view the task list again
+- Verify that the deleted task no longer appears in the list
+expected_result: The selected task should be removed from the task list
