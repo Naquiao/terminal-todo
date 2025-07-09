@@ -1,0 +1,11 @@
+name: Task Form Validation
+page: /
+page_path: app/page.tsx
+task: Submitting a task form with missing required fields
+steps:
+- Navigate to the home page
+- Click the add button
+- Leave required fields empty
+- Attempt to save the task
+- Verify validation errors are displayed
+expected_result: Form should show validation errors and prevent submission

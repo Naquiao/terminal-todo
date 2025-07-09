@@ -1,0 +1,13 @@
+name: Category Selection
+page: /
+page_path: app/page.tsx
+task: Selecting a category when creating a task
+steps:
+- Navigate to the home page
+- Click the add button
+- Fill in task details
+- Click on the category dropdown
+- Select a category
+- Save the task
+- Verify task has the correct category
+expected_result: New task should be created with the selected category
