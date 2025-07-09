@@ -1,0 +1,10 @@
+name: Task Search
+page: /
+page_path: app/page.tsx
+task: Searching for a specific task
+steps:
+- Enter search text in the search input field
+- Verify that only tasks matching the search text are displayed
+- Clear the search field
+- Verify all tasks are displayed again
+expected_result: Only tasks matching search criteria are displayed

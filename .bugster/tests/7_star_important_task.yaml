@@ -1,0 +1,9 @@
+name: Star Important Task
+page: /
+page_path: app/page.tsx
+task: Marking a task as important
+steps:
+- Find a task in the list
+- Click the star icon on the task
+- Verify the task shows as starred/important
+expected_result: Task is marked with a star icon

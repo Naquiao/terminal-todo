@@ -1,0 +1,9 @@
+name: Task Filtering
+page: /
+page_path: app/page.tsx
+task: Filtering tasks by category
+steps:
+- Click the filter button
+- Select a category from the filter options
+- Verify that only tasks in that category are shown
+expected_result: Only tasks matching selected category are displayed

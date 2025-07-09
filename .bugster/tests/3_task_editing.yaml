@@ -1,0 +1,11 @@
+name: Task Editing
+page: /
+page_path: app/page.tsx
+task: Editing an existing task
+steps:
+- Click the edit icon on an existing task
+- Modify the task name in the dialog
+- Change the category
+- Click the 'Save' button
+- Verify task reflects the changes
+expected_result: Task details are updated with new information

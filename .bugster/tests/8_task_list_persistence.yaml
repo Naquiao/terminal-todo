@@ -1,0 +1,9 @@
+name: Task List Persistence
+page: /
+page_path: app/page.tsx
+task: Verifying tasks persist after page refresh
+steps:
+- Create a new task
+- Refresh the page
+- Verify the created task is still present in the list
+expected_result: Tasks remain in the list after refresh
