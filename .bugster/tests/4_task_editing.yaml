@@ -1,0 +1,12 @@
+name: Task Editing
+page: /
+page_path: app/page.tsx
+task: Editing an existing task
+steps:
+- Navigate to the home page
+- Find an existing task in the list
+- Click the edit icon next to the task
+- Modify the task details in the input field
+- Save the changes
+- Verify the task shows the updated information
+expected_result: The task details should be updated with the new information

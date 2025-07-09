@@ -1,0 +1,11 @@
+name: Task Priority Setting
+page: /
+page_path: app/page.tsx
+task: Setting task priority
+steps:
+- Navigate to the home page
+- Create a new task or edit an existing one
+- Set a priority level for the task
+- Save the changes
+- Verify the task displays the correct priority indicator
+expected_result: The task should display the selected priority level

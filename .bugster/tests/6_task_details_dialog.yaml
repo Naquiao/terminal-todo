@@ -1,0 +1,10 @@
+name: Task Details Dialog
+page: /
+page_path: app/page.tsx
+task: Viewing task details in a dialog
+steps:
+- Navigate to the home page
+- Click on a task to view its details
+- Verify that a dialog opens with detailed information about the task
+- Close the dialog
+expected_result: A dialog should open showing detailed information about the task

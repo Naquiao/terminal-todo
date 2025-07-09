@@ -1,0 +1,13 @@
+name: Responsive Layout
+page: /
+page_path: app/page.tsx
+task: Testing responsive layout on different screen sizes
+steps:
+- Navigate to the home page on a desktop viewport
+- Verify all elements are properly displayed
+- Resize the browser to a tablet viewport size
+- Verify the layout adjusts appropriately
+- Resize to mobile viewport size
+- Verify the layout is usable on a small screen
+expected_result: The application layout should adapt appropriately to different screen
+  sizes
