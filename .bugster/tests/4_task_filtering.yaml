@@ -1,0 +1,10 @@
+name: Task Filtering
+page: /
+page_path: app/page.tsx
+task: Filtering tasks by category or status
+steps:
+- Navigate to the home page
+- Locate the filter dropdown or selector
+- Select a specific category or status filter option
+- Verify that the task list updates to show only matching tasks
+expected_result: Only tasks matching the filter criteria should be displayed

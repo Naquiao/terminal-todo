@@ -1,0 +1,11 @@
+name: Task Completion
+page: /
+page_path: app/page.tsx
+task: Marking a task as complete
+steps:
+- Navigate to the home page
+- Find an incomplete task in the list
+- Click the checkbox or complete button for the task
+- Verify the task's status changes to complete
+expected_result: Task should be visually marked as complete and/or moved to completed
+  section

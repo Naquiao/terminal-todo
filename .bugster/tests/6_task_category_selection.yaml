@@ -1,0 +1,11 @@
+name: Task Category Selection
+page: /
+page_path: app/page.tsx
+task: Assigning a category to a task
+steps:
+- Navigate to the home page
+- Create a new task or edit an existing task
+- Open the category dropdown in the task form
+- Select a category from the available options
+- Save the task
+expected_result: Task should display the selected category

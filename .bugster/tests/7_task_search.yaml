@@ -1,0 +1,10 @@
+name: Task Search
+page: /
+page_path: app/page.tsx
+task: Searching for a specific task
+steps:
+- Navigate to the home page
+- Locate the search input field
+- Enter a search term relevant to an existing task
+- Verify the task list updates to show only matching tasks
+expected_result: Only tasks matching the search term should be displayed

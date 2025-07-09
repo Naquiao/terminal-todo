@@ -1,0 +1,10 @@
+name: Task Detail View
+page: /
+page_path: app/page.tsx
+task: Viewing detailed information about a task
+steps:
+- Navigate to the home page
+- Find an existing task in the list
+- Click on the task name or a view details button
+- Verify that all task information is displayed correctly
+expected_result: A dialog or expanded view showing all task details should appear
