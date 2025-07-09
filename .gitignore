@@ -37,4 +37,3 @@ next-env.d.ts
 .bugster/project.json
 .gitignore
 .bugster/next/analysis.json
-
