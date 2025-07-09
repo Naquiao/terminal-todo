@@ -1,0 +1,10 @@
+name: Filter tasks by category
+page: /
+page_path: app/page.tsx
+task: Filtering the task list to show only tasks of a specific category
+steps:
+- Navigate to the homepage
+- Locate the filter section or dropdown
+- Select a specific category filter
+- Verify that only tasks matching the selected category are displayed
+expected_result: Only tasks matching the selected category should be displayed

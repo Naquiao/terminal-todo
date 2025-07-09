@@ -1,0 +1,12 @@
+name: Add a new task
+page: /
+page_path: app/page.tsx
+task: Creating a new task in the task management interface
+steps:
+- Navigate to the homepage
+- Click the 'Plus' button to open the new task dialog
+- Enter task details in the input field
+- Select a category from the dropdown if available
+- Click the save or submit button
+- Verify the new task appears in the task list
+expected_result: A new task should appear in the task list

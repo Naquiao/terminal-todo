@@ -1,0 +1,10 @@
+name: Star a priority task
+page: /
+page_path: app/page.tsx
+task: Marking a task as priority/starred
+steps:
+- Navigate to the homepage
+- Find a task in the list
+- Click the star icon associated with the task
+- Verify the task shows a starred status (filled star icon or visual indicator)
+expected_result: The task should be visually indicated as starred/priority

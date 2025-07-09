@@ -1,0 +1,10 @@
+name: Filter tasks by completion status
+page: /
+page_path: app/page.tsx
+task: Filtering tasks by their completion status
+steps:
+- Navigate to the homepage
+- Locate the filter controls
+- Select the option to filter by completion status (completed or incomplete)
+- Verify only tasks matching the selected status are displayed
+expected_result: Only tasks matching the selected completion status should be displayed
