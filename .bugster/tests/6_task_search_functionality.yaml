@@ -1,0 +1,10 @@
+name: Task Search Functionality
+page: /
+page_path: app/page.tsx
+task: Searching for specific tasks using the search input
+steps:
+- Locate the search input field
+- Enter a search term related to an existing task
+- Verify that only tasks containing the search term are displayed
+- Clear the search input and verify all tasks are displayed again
+expected_result: Only tasks matching the search query should be displayed

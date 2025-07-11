@@ -1,0 +1,10 @@
+name: Task Filtering Functionality
+page: /
+page_path: app/page.tsx
+task: Filtering tasks by category or status
+steps:
+- Locate the filter dropdown or button
+- Select a specific filter category or status
+- Verify that only tasks matching the selected criteria are displayed
+- Select a different filter option to confirm dynamic filtering
+expected_result: Only tasks matching the filter criteria should be displayed
