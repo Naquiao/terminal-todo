@@ -1,0 +1,10 @@
+name: Task Completion Functionality
+page: /
+page_path: app/page.tsx
+task: Marking a task as complete
+steps:
+- Find an existing task in the task list
+- Click the checkbox next to the task
+- Verify the task shows visual indication of completion
+- Verify the task is marked as 'Done'
+expected_result: Task should be marked as complete with visual indication
