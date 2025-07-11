@@ -1,0 +1,11 @@
+name: Task Status Toggle Functionality
+page: /
+page_path: app/page.tsx
+task: Toggling task completion status
+steps:
+- Navigate to the home page
+- Find an existing task in the list
+- Click the checkbox or status indicator next to the task
+- Verify the task's visual appearance changes to reflect the new status
+- Verify the task moves to the appropriate section if tasks are grouped by status
+expected_result: Task status should change from incomplete to complete or vice versa

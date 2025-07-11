@@ -1,0 +1,11 @@
+name: Task Deletion Functionality
+page: /
+page_path: app/page.tsx
+task: Deleting an existing task
+steps:
+- Navigate to the home page
+- Find an existing task in the list
+- Click the trash icon on the task
+- Confirm deletion in the prompt
+- Verify the task no longer appears in the list
+expected_result: Task should be removed from the task list

@@ -1,0 +1,14 @@
+name: Task Category Management
+page: /
+page_path: app/page.tsx
+task: Adding a new task category
+steps:
+- Navigate to the home page
+- Locate the category management section or button
+- Click on 'Add Category' or similar option
+- Enter a name for the new category
+- Save the new category
+- Attempt to create a new task
+- Verify the new category appears in the category dropdown
+expected_result: New category should be available for selection when creating or editing
+  tasks

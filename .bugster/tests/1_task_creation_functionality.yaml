@@ -1,0 +1,12 @@
+name: Task Creation Functionality
+page: /
+page_path: app/page.tsx
+task: Creating a new task
+steps:
+- Navigate to the home page
+- Click on the 'Add Task' button
+- Fill in the task name in the dialog
+- Select a category from the dropdown
+- Click 'Save' button
+- Verify the new task appears in the list
+expected_result: Task should be added to the task list

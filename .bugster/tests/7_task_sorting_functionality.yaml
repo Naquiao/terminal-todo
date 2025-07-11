@@ -1,0 +1,11 @@
+name: Task Sorting Functionality
+page: /
+page_path: app/page.tsx
+task: Sorting tasks by different criteria
+steps:
+- Navigate to the home page
+- Locate the sort options
+- Click on a sort option (e.g., by name, by date, by status)
+- Verify tasks are displayed in the correct order according to the selected sorting
+  option
+expected_result: Tasks should be reordered according to the selected sorting option
