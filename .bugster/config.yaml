@@ -2,4 +2,4 @@ base_url: http://localhost:3000
 credentials: []
 project_id: OwY43DPcwHlfEKUaDgw8
 project_name: terminal-todo
-x-vercel-protection-bypass: ''
+x-vercel-protection-bypass: '3xc7Sasouuf9W7NjHbvvCbGCg9EzLYOG'
