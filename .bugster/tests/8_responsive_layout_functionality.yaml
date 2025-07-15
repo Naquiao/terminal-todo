@@ -4,7 +4,14 @@ page_path: app/page.tsx
 task: Verifying the application layout adapts to different screen sizes
 steps:
 - Load the application on a desktop viewport
-- Resize the browser to a mobile viewport size
-- Verify that UI elements reposition appropriately
-- Verify that all functionality remains accessible on mobile view
-expected_result: UI should adjust appropriately for mobile and desktop views
+- Verify the TasksList, StatsCard components render in a grid with md:grid-cols-4
+  for desktop
+- Verify StatsDashboard displays all four cards in a single row on desktop
+- Resize the browser to a mobile viewport size (below md breakpoint)
+- Verify the StatsCard components stack vertically in grid-cols-1 layout
+- Verify that all functionality (filtering, adding tasks, task operations) remains
+  accessible on mobile view
+- Verify that memoized components (TerminalHeader, TaskItem, etc.) render correctly
+  at both viewport sizes
+expected_result: UI components should reorganize appropriately between mobile and
+  desktop viewports with all functionality remaining accessible and properly rendered

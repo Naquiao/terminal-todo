@@ -3,8 +3,10 @@ page: /
 page_path: app/page.tsx
 task: Searching for specific tasks using the search input
 steps:
-- Locate the search input field
-- Enter a search term related to an existing task
-- Verify that only tasks containing the search term are displayed
-- Clear the search input and verify all tasks are displayed again
-expected_result: Only tasks matching the search query should be displayed
+- Look for a search input field in the main application container
+- Enter a search term that matches text in an existing task
+- Verify that the TasksList component only displays tasks containing the search term
+- Verify that non-matching tasks are hidden from view
+- Clear the search input and verify all tasks appear again in the TasksList component
+expected_result: Only tasks matching the search query should be displayed in the task
+  list

@@ -3,8 +3,13 @@ page: /
 page_path: app/page.tsx
 task: Filtering tasks by category or status
 steps:
-- Locate the filter dropdown or button
-- Select a specific filter category or status
-- Verify that only tasks matching the selected criteria are displayed
-- Select a different filter option to confirm dynamic filtering
-expected_result: Only tasks matching the filter criteria should be displayed
+- Locate the filter section with status and category options
+- Click on a specific status filter ('ALL', 'ACTIVE', or 'COMPLETED')
+- Verify that only tasks matching the selected status are displayed
+- Locate the category dropdown in the filter section
+- Click the category dropdown and select a specific category
+- Verify that only tasks matching both the selected status and category are displayed
+- If no tasks match the criteria, verify the 'No tasks found' message appears with
+  appropriate filter information
+expected_result: Only tasks matching the selected filter criteria should be displayed
+  in the task list, with a message showing when no matching tasks are found

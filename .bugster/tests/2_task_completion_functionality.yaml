@@ -5,6 +5,9 @@ task: Marking a task as complete
 steps:
 - Find an existing task in the task list
 - Click the checkbox next to the task
-- Verify the task shows visual indication of completion
-- Verify the task is marked as 'Done'
-expected_result: Task should be marked as complete with visual indication
+- Verify the task shows visual indication of completion (text with line-through and
+  purple color)
+- Verify the task has a 'DONE' badge displayed
+- Verify the checkbox is in checked state with purple background
+expected_result: Task should be marked as complete with visual indication including
+  line-through text, 'DONE' badge, and toggled checkbox state

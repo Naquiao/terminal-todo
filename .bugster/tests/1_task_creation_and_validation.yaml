@@ -3,8 +3,13 @@ page: /
 page_path: app/page.tsx
 task: Adding a new task to the task management application
 steps:
-- Click the '+ New Task' button
-- Enter a task title in the dialog input field
-- Click the 'Create' button
-- Verify the new task appears in the task list
-expected_result: New task should appear in the tasks list
+- Click the 'Advanced' button
+- In the dialog, enter a task title in the 'Task Title' field
+- Optionally add a description in the 'Description' field
+- Select a category from the dropdown under 'Category'
+- Select a priority level from the dropdown under 'Priority'
+- Optionally set a due date using the date picker
+- Click the 'Create Task' button
+- Verify the new task appears at the top of the task list with all the specified details
+expected_result: New task should appear at the top of the tasks list with all the
+  provided details
