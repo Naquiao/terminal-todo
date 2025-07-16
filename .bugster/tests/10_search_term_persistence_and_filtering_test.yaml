@@ -1,0 +1,23 @@
+name: Search Term Persistence and Filtering Test
+page: Task Management Application
+page_path: app/page.tsx
+task: Testing the search term filtering functionality across component re-renders
+steps:
+- Load the task management application
+- Add several tasks with different titles and categories using the QuickAddTask component
+- Locate the search input field in the Input component within the QuickAddTask section
+- Enter a search term that partially matches text in at least one of the existing
+  tasks
+- Verify that only the TasksList component re-renders (not TerminalHeader or StatsDashboard)
+- Verify that only tasks containing the search term are displayed in the filtered
+  list
+- Verify that the search highlights or indicates matching results in some way
+- Add a new task containing the search term
+- Verify the new task appears in the filtered list immediately
+- Add a new task that doesn't contain the search term
+- Verify this task does not appear in the filtered list
+- Clear the search term
+- Verify all tasks are now visible in the TasksList component
+- Verify that memoized components maintained their state throughout the process
+expected_result: Search term should persist and filter tasks correctly even when components
+  are memoized and only relevant components should re-render

@@ -3,13 +3,20 @@ page: /
 page_path: app/page.tsx
 task: Filtering tasks by category or status
 steps:
-- Locate the filter section with status and category options
-- Click on a specific status filter ('ALL', 'ACTIVE', or 'COMPLETED')
-- Verify that only tasks matching the selected status are displayed
-- Locate the category dropdown in the filter section
-- Click the category dropdown and select a specific category
-- Verify that only tasks matching both the selected status and category are displayed
-- If no tasks match the criteria, verify the 'No tasks found' message appears with
-  appropriate filter information
+- Locate the TaskFilters component with status and category options
+- Click on a specific status filter ('ALL', 'ACTIVE', or 'COMPLETED') using the handleFilterChange
+  callback
+- Verify that the TasksList component updates and only displays tasks matching the
+  selected status
+- Locate the category dropdown in the TaskFilters component
+- Click the category dropdown and select a specific category using the handleCategoryFilterChange
+  callback
+- Verify that the TasksList component updates to show only tasks matching both the
+  selected status and category
+- If no tasks match the criteria, verify the TasksList displays the 'No tasks found'
+  message with the appropriate filter information
+- Verify that other memoized components like TerminalHeader and StatsDashboard don't
+  re-render during filter changes
 expected_result: Only tasks matching the selected filter criteria should be displayed
-  in the task list, with a message showing when no matching tasks are found
+  in the task list, with the memoized TasksList component showing a 'No tasks found'
+  message when no matching tasks exist

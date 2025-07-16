@@ -4,14 +4,18 @@ page_path: app/page.tsx
 task: Verifying the application layout adapts to different screen sizes
 steps:
 - Load the application on a desktop viewport
-- Verify the TasksList, StatsCard components render in a grid with md:grid-cols-4
-  for desktop
-- Verify StatsDashboard displays all four cards in a single row on desktop
+- Verify the memoized components (TerminalHeader, StatsDashboard, TasksList, etc.)
+  render correctly
+- Verify StatsDashboard displays all four StatsCard components in a single row on
+  desktop with md:grid-cols-4 layout
 - Resize the browser to a mobile viewport size (below md breakpoint)
 - Verify the StatsCard components stack vertically in grid-cols-1 layout
 - Verify that all functionality (filtering, adding tasks, task operations) remains
   accessible on mobile view
-- Verify that memoized components (TerminalHeader, TaskItem, etc.) render correctly
-  at both viewport sizes
+- Verify that QuickAddTask component adapts properly to mobile layout
+- Verify that TaskFilters component properly wraps on mobile screens
+- Test that memoized components update correctly when their props change but don't
+  re-render unnecessarily
 expected_result: UI components should reorganize appropriately between mobile and
-  desktop viewports with all functionality remaining accessible and properly rendered
+  desktop viewports with all functionality remaining accessible and properly rendered,
+  with memoized components maintaining their performance characteristics

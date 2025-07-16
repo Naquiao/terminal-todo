@@ -3,10 +3,13 @@ page: /
 page_path: app/page.tsx
 task: Editing an existing task
 steps:
-- Find an existing task in the task list
-- Click the edit icon (Edit3) for that task
-- Modify the task details in the dialog input fields
-- Click the 'Save' button
-- Verify the task displays the updated information through the TaskItem component
-expected_result: Task details should be updated with new information using the updateTask
-  hook
+- Find an existing task in the task list displayed by the TasksList component
+- Click the edit icon (Edit3) in the task's action area
+- Update the task title in the Input field
+- Modify the description in the Textarea field
+- Click the 'Save' button to apply changes
+- Verify the TaskItem component renders with the updated information
+- Verify only the specific TaskItem component updates (not the entire list) due to
+  memoization
+expected_result: Task details should be updated with new information using the memoized
+  updateTask callback function

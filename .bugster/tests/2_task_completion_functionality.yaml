@@ -3,11 +3,15 @@ page: /
 page_path: app/page.tsx
 task: Marking a task as complete
 steps:
-- Find an existing task in the task list
+- Find an existing task in the TasksList component
 - Click the checkbox next to the task
 - Verify the task shows visual indication of completion (text with line-through and
-  purple color)
-- Verify the task has a 'DONE' badge displayed
-- Verify the checkbox is in checked state with purple background
+  purple color in the font-mono class)
+- Verify the task has a 'DONE' badge displayed within the flex items-center gap-2
+  mt-2 flex-wrap container
+- Verify the checkbox is in checked state with 'data-[state=checked]:bg-purple-600
+  data-[state=checked]:border-purple-500' styling
+- Verify that only the specific TaskItem component updates due to memoization
 expected_result: Task should be marked as complete with visual indication including
-  line-through text, 'DONE' badge, and toggled checkbox state
+  line-through text with purple color, 'DONE' badge, and toggled checkbox state with
+  purple background

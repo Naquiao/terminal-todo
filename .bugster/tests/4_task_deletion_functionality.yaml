@@ -3,10 +3,14 @@ page: /
 page_path: app/page.tsx
 task: Deleting a task from the task list
 steps:
-- Find an existing task in the task list
-- Locate the delete button (trash icon) in the task's action area
-- Click the trash/delete icon for that task
-- Verify the task is immediately removed from the task list
-- Verify the task stats (Total Tasks, Active, Completed) are updated accordingly
-expected_result: Task should be immediately removed from the task list without requiring
-  a confirmation dialog
+- Find an existing task in the TasksList component
+- Locate the delete button (Trash2 icon) in the task's action area on the right side
+- Click the Trash2 icon for that task
+- Verify the task is immediately removed from the TasksList without confirmation dialog
+- Verify the StatsDashboard component automatically updates to reflect the new task
+  count
+- Verify that only the specific components affected by the deletion are re-rendered
+  (TasksList and StatsDashboard) while other memoized components remain stable
+expected_result: Task should be immediately removed from the task list and the task
+  stats (Total Tasks, Active, Completed) should be automatically updated via the memoized
+  components

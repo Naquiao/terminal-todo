@@ -4,16 +4,24 @@ page_path: app/page.tsx
 task: Verify that memoized components render correctly and maintain functionality
 steps:
 - Load the task management application
+- Verify the TerminalHeader component displays the current time from useCurrentTime
+  hook
 - Add a new task using the QuickAddTask component
-- Verify the TasksList component updates to show the new task without full page re-render
-- Toggle task completion status by clicking the checkbox
-- Verify that only the specific TaskItem component updates (not the entire list)
-- Filter tasks by selecting a different status filter
+- Verify the TasksList component updates to show the new task without re-rendering
+  other memoized components
+- Toggle a task's completion status by clicking its checkbox
+- Verify that only the specific TaskItem component updates while other TaskItems remain
+  stable
+- Change the status filter using the TaskFilters component
 - Verify the TasksList updates while other components (TerminalHeader, StatsDashboard)
   remain stable
-- Change the category filter and verify only the relevant components update
-- Delete a task and verify the TasksList and StatsDashboard update appropriately
-- Verify the TerminalHeader displays the current time and updates it regularly
-expected_result: All memoized components (TerminalHeader, StatsCard, StatsDashboard,
-  TaskItem, TasksList, etc.) render correctly and maintain their expected functionality
-  without unnecessary re-renders
+- Change the category filter in the TaskFilters component
+- Verify only relevant components update in response to the filter change
+- Delete a task and verify the TasksList updates along with the StatsDashboard showing
+  updated task statistics
+- Check that the memoized components are preserved across renders by using React DevTools
+  or performance monitoring
+expected_result: All explicitly memoized components (TerminalHeader, StatsCard, StatsDashboard,
+  TaskItem, TasksList, QuickAddTask, TaskFilters) render correctly and maintain their
+  expected functionality without unnecessary re-renders when state changes occur in
+  other components

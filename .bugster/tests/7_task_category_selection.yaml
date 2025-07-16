@@ -6,9 +6,12 @@ steps:
 - Click the 'Advanced' button to open the task creation dialog
 - In the dialog, locate the category dropdown in the left column of the grid layout
 - Click on the dropdown and select a specific category from the available options
-- Fill in other required task information including task title
+- Fill in the required 'Task Title' field
+- Optionally add description, select priority, and set due date
 - Click the 'Create Task' button
-- Verify the task appears in the task list with a badge showing the selected category
-  and its associated icon
+- Verify the task appears in the TasksList component with a badge showing the selected
+  category and its associated icon
+- Verify that only the relevant components (TasksList and StatsDashboard) update while
+  other memoized components remain stable
 expected_result: Task should display the selected category with appropriate icon in
-  a badge format
+  a badge format within the memoized TaskItem component

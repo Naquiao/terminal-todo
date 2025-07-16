@@ -3,10 +3,13 @@ page: /
 page_path: app/page.tsx
 task: Searching for specific tasks using the search input
 steps:
-- Look for a search input field in the main application container
+- Look for a search input field in the top section of the application
 - Enter a search term that matches text in an existing task
-- Verify that the TasksList component only displays tasks containing the search term
-- Verify that non-matching tasks are hidden from view
+- Verify that the memoized TasksList component only displays tasks containing the
+  search term
+- Verify that non-matching tasks are hidden from view while StatsDashboard still shows
+  total task counts
 - Clear the search input and verify all tasks appear again in the TasksList component
+  without full page re-render
 expected_result: Only tasks matching the search query should be displayed in the task
-  list
+  list with memoized components properly updating
