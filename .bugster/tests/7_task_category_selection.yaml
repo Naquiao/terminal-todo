@@ -3,9 +3,12 @@ page: /
 page_path: app/page.tsx
 task: Assigning a category to a task
 steps:
-- Click the '+ New Task' button or edit an existing task
-- In the dialog, locate the category dropdown
-- Select a specific category from the available options
-- Complete task creation/editing
-- Verify the task shows the selected category
-expected_result: Task should display the selected category
+- Click the 'Advanced' button to open the task creation dialog
+- In the dialog, locate the category dropdown in the left column of the grid layout
+- Click on the dropdown and select a specific category from the available options
+- Fill in other required task information including task title
+- Click the 'Create Task' button
+- Verify the task appears in the task list with a badge showing the selected category
+  and its associated icon
+expected_result: Task should display the selected category with appropriate icon in
+  a badge format
