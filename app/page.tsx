@@ -213,7 +213,7 @@ const AdvancedTaskDialog = memo(({
           <DialogTitle className="text-purple-400">Create Advanced Task</DialogTitle>
         </DialogHeader>
         <div className="space-y-4">
-          <div> 
+          <div>  
             <label className="text-purple-400 text-sm mb-2 block">Task Title</label>
             <Input
               value={formData.text}
