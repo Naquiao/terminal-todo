@@ -1,0 +1,11 @@
+name: Add a new task
+page: /
+page_path: app/page.tsx
+task: Creating a new task in the terminal interface
+steps:
+- Load the homepage
+- Find the quick add input field
+- Type a task name like 'Buy groceries'
+- Press Enter to submit
+- Verify the task appears in the task list
+expected_result: A new task should appear in the task list with the entered details

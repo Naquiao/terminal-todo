@@ -38,3 +38,6 @@ next-env.d.ts
 .gitignore
 .bugster/next/analysis.json
 
+.bugster/.env
+.bugster/paths.json
+.bugster/ui_config_cache.json
