@@ -5,8 +5,10 @@ task: Modifying an existing task's details
 steps:
 - Load the homepage
 - Find an existing task in the list
-- Click on the edit icon or the task itself to open edit mode
-- Modify the task name or details
-- Save the changes
-- Verify the task displays the updated information
-expected_result: The task should be updated with the new information
+- Click on the edit icon (Edit3 icon) next to the task
+- The task should enter edit mode displaying input fields for task text and description
+- Modify the task name and/or description in the provided input fields
+- Click the Save button with the Save icon
+- Verify the task displays the updated information with the changes applied
+expected_result: The task should be updated with the new information using the task
+  management hook's updateTask function

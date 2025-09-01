@@ -6,7 +6,9 @@ steps:
 - Load the homepage
 - Find an uncompleted task in the list
 - Click the checkbox next to the task
-- Verify the task is marked as completed with visual confirmation
-- Check if the task moves to a completed section or changes appearance
-expected_result: The task should be visually indicated as completed and moved to the
-  completed section if applicable
+- Verify the task text has 'text-purple-400 line-through' styling
+- Verify a 'DONE' badge appears in the task's badge section
+- Verify task status is reflected in the StatsDashboard with updated completed and
+  active counts
+expected_result: The task should be visually indicated as completed with a line-through
+  text style, purple text color, and a 'DONE' badge should appear in the task item

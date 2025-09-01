@@ -4,9 +4,11 @@ page_path: app/page.tsx
 task: Filtering tasks by selecting a specific category
 steps:
 - Load the homepage
-- Locate the category filter dropdown
+- Locate the category filter dropdown in the TaskFilters component
 - Click to open the category selection menu
-- Select a specific category
+- Select a specific category from the available options
 - Verify that only tasks from the selected category are displayed
+- Verify that if no tasks match the filter, a message appears indicating 'No [category]
+  tasks'
 expected_result: Only tasks matching the selected category should be displayed in
-  the list
+  the task list with a no-tasks message showing if none match the filter

@@ -5,7 +5,10 @@ task: Removing a task from the task list
 steps:
 - Load the homepage
 - Find an existing task in the list
-- Locate and click the delete/trash icon for that task
-- Confirm deletion if prompted
-- Verify the task is no longer present in the list
-expected_result: The task should be removed from the list and no longer visible
+- Locate the task item with the delete/trash icon (represented by Trash2 component)
+- Click the trash icon button with the className containing 'text-white/60 hover:text-white
+  hover:bg-white/10'
+- Verify the task is no longer present in the TasksList component
+- Verify the taskStats total count has decreased by one
+expected_result: The task should be removed from the list using the new deleteTask
+  hook function and the task should no longer be visible in the filtered tasks list

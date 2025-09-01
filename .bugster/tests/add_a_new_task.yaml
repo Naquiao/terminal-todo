@@ -4,8 +4,11 @@ page_path: app/page.tsx
 task: Creating a new task in the terminal interface
 steps:
 - Load the homepage
-- Find the quick add input field
+- Find the quick add input field with the '$' prefix
 - Type a task name like 'Buy groceries'
-- Press Enter to submit
-- Verify the task appears in the task list
-expected_result: A new task should appear in the task list with the entered details
+- Click the 'Quick Add' button or press Enter to submit
+- Verify the task appears at the top of the task list with 'personal' category and
+  'medium' priority
+- Verify task displays additional metadata including timestamp and badges
+expected_result: A new task should appear at the top of the task list with the entered
+  details and appropriate default values (personal category, medium priority)

@@ -1,0 +1,23 @@
+name: Use advanced task creation dialog
+page: LiquidTerminalTodo
+page_path: app/page.tsx
+task: Creating a new task using the Advanced task creation dialog
+steps:
+- Load the homepage
+- Click the 'Advanced' button next to the quick add input field
+- Verify the Advanced Task dialog opens with input fields for title, description,
+  category, priority, and due date
+- Enter a task title in the 'Task Title' field (e.g., 'Complete project report')
+- Add a description in the 'Description' field (e.g., 'Include all required sections
+  and charts')
+- Select a category from the category dropdown (e.g., 'work')
+- Select a priority from the priority dropdown (e.g., 'high')
+- Set a due date using the date picker
+- Click the 'Create Task' button
+- Verify the dialog closes
+- Verify the new task appears at the top of the task list with the entered title,
+  description, category, priority, and due date
+- Verify task displays the appropriate badges for the selected category and priority
+- Verify the task statistics are updated to reflect the new task
+expected_result: Task should be created with all specified details and appear in the
+  task list
