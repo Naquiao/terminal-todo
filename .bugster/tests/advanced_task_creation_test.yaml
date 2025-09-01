@@ -1,0 +1,18 @@
+name: Advanced Task Creation Test
+page: Todo Terminal Interface
+page_path: app/page.tsx
+task: Creating a task with advanced options using the Advanced Task Dialog
+steps:
+- Load the homepage
+- Click the 'Advanced' button next to the quick add input field
+- Enter a task title in the 'Task Title' input field
+- Add a description in the 'Description' textarea
+- Select a specific category from the category dropdown
+- Choose a priority level (Low, Medium, or High) from the priority dropdown
+- Set a due date using the date picker
+- Click the 'Create Task' button to submit the form
+- Verify the task appears at the top of the task list with the specified title, description,
+  category, priority, and due date
+- Verify the taskStats in the Stats Dashboard have been updated accordingly
+expected_result: The task should be created with all specified advanced options and
+  appear in the tasks list
