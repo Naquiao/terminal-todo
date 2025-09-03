@@ -1,0 +1,18 @@
+name: Task Template Selection
+page: Home
+page_path: app/page.tsx
+task: Verify that a user can select a task template to create a new task
+steps:
+- Navigate to the home page
+- Look for the category dropdown in the filters section
+- Select a specific category from the dropdown (e.g., 'Work')
+- Verify that a 'Quick Actions for Work' section appears
+- Identify one of the template buttons in the quick actions section (e.g., 'Weekly
+  Review')
+- Click on the template button
+- Verify that a new task is created and appears in the task list
+- Confirm the task has the correct title matching the template text
+- Verify the task has the correct category badge matching the template category
+- Verify the task has the correct priority badge matching the template priority
+expected_result: The task is created with the correct template properties (text, description,
+  category, priority)

@@ -5,9 +5,9 @@ task: Verify that the task deletion button displays 'Remove' text
 steps:
 - Navigate to the home page
 - Find a task in the task list
-- Locate the delete button next to the task
-- Verify that the delete button displays 'Remove' text
+- Look for the buttons on the right side of the task
+- Verify that one of the buttons displays 'Remove' text instead of a trash icon
 - Click the 'Remove' button
 - Verify that the task is removed from the list
 expected_result: The button for deleting tasks should display the text 'Remove' instead
-  of 'Deleted'
+  of a trash icon

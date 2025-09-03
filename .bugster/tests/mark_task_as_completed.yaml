@@ -6,6 +6,8 @@ steps:
 - Navigate to the home page
 - Find an uncompleted task in the tasks list
 - Click the checkbox next to the task
-- Verify the task is visually marked as completed
-- Note that the delete button now shows 'Remove' instead of 'Deleted'
-expected_result: The task is visually marked as completed
+- Verify the task text is now displayed in purple color with a line-through style
+- Verify that a 'DONE' badge appears in the task's badge collection
+- Verify that the task deletion button continues to show 'Remove' text
+expected_result: The task is visually marked as completed with the text showing in
+  purple color with a line-through style, and a 'DONE' badge appears in the task card
