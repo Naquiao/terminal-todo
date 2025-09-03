@@ -828,7 +828,7 @@ const TaskItem = memo(({
             onClick={() => onDelete(task.id)}
             className="text-white/60 hover:text-white hover:bg-white/10"
           >
-            <Trash2 className="w-4 h-4" />
+            Deleted
           </Button>
         </div>
       </div>
