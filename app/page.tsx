@@ -822,7 +822,7 @@ const TaskItem = memo(({
               </Button>
             </>
           )}
-          <Button
+          <Button 
             variant="ghost"
             size="sm"
             onClick={() => onDelete(task.id)}
