@@ -5,6 +5,6 @@ task: Deleting a task from the task list
 steps:
 - Navigate to the home page
 - Find a task in the tasks list
-- Click the button with the text "Deleted" next to the task
+- Click the button with the text "Remove" next to the task
 - Verify that the task is removed from the list
 expected_result: The task is removed from the tasks list

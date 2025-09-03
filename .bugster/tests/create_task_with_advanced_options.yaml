@@ -10,5 +10,6 @@ steps:
 - Add a description in the textarea
 - Click the save button
 - Verify the new task appears in the list with the correct category
+- Verify the delete button says 'Remove' instead of 'Deleted'
 expected_result: A new task with the specified category and description is added to
   the list

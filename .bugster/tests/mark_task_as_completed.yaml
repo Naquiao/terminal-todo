@@ -7,4 +7,5 @@ steps:
 - Find an uncompleted task in the tasks list
 - Click the checkbox next to the task
 - Verify the task is visually marked as completed
+- Note that the delete button now shows 'Remove' instead of 'Deleted'
 expected_result: The task is visually marked as completed

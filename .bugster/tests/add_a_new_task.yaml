@@ -8,4 +8,5 @@ steps:
 - Type 'Buy groceries' in the input field
 - Press Enter or click the add button
 - Verify that 'Buy groceries' appears in the tasks list
+- Verify the 'Remove' button is available for the newly added task
 expected_result: The new task appears in the tasks list
