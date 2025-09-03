@@ -935,7 +935,7 @@ export default function LiquidTerminalTodo() {
 
           <StatsDashboard stats={taskStats} />
           <QuickAddTask onAddTask={addTask} />
-          <TaskTemplateSelector 
+          {/* <TaskTemplateSelector 
             onSelectTemplate={(template) => addTask({
               text: template.text,
               description: template.description,
@@ -944,7 +944,7 @@ export default function LiquidTerminalTodo() {
               priority: template.priority,
             })}
             selectedCategory={categoryFilter}
-          />
+          /> */}
           <TaskFilters
             filter={filter}
             categoryFilter={categoryFilter}
