@@ -4,8 +4,9 @@ page_path: app/page.tsx
 task: Adding a new task through the quick add functionality
 steps:
 - Navigate to the home page
-- Find the quick add input field
+- Find the quick add input field with the '$' prefix
 - Type 'Buy groceries' in the input field
-- Press Enter or click the add button
-- Verify that 'Buy groceries' appears in the tasks list
-expected_result: The new task appears in the tasks list
+- Click the 'Quick Add' button or press Enter
+- Verify that 'Buy groceries' appears at the top of the tasks list with 'personal'
+  category and 'medium' priority
+expected_result: The new task appears at the top of the tasks list

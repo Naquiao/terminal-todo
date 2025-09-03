@@ -4,7 +4,11 @@ page_path: app/page.tsx
 task: Filtering the task list by a specific category
 steps:
 - Navigate to the home page
-- Click on the category filter dropdown
-- Select a specific category
-- Verify that only tasks with the selected category are displayed
-expected_result: Only tasks matching the selected category are displayed
+- Look for the Category filter section with the FolderOpen icon
+- Click on the category dropdown selector
+- Select a specific category from the dropdown options
+- Verify that only tasks with the selected category are displayed in the task list
+- Verify that category-specific quick actions appear in a section with 'Quick Actions
+  for [Category]' heading
+expected_result: Only tasks matching the selected category are displayed, and quick
+  action templates specific to that category are shown

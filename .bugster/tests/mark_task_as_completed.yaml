@@ -6,5 +6,8 @@ steps:
 - Navigate to the home page
 - Find an uncompleted task in the tasks list
 - Click the checkbox next to the task
-- Verify the task is visually marked as completed
-expected_result: The task is visually marked as completed
+- Verify the checkbox is checked with a purple background
+- Verify the task text has a line-through styling and is colored in purple
+- Verify a 'DONE' badge appears in the task's badge collection
+expected_result: The task is visually marked as completed with a purple checkmark,
+  line-through text styling, and a "DONE" badge

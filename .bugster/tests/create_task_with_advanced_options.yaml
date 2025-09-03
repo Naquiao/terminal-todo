@@ -4,11 +4,16 @@ page_path: app/page.tsx
 task: Creating a new task with advanced options like category and description
 steps:
 - Navigate to the home page
-- Click on the plus button to open the advanced task dialog
-- Enter a task title in the input field
+- Click on the 'Advanced' button to open the advanced task dialog
+- In the dialog, select a template from the quick templates section to pre-fill the
+  form (optional)
+- Enter a task title in the 'Task Title' input field
+- Enter a description in the description textarea
 - Select a category from the dropdown
-- Add a description in the textarea
-- Click the save button
-- Verify the new task appears in the list with the correct category
-expected_result: A new task with the specified category and description is added to
-  the list
+- Set the priority using the priority dropdown
+- Add an optional due date using the date input
+- Click the 'Create Task' button
+- Verify the new task appears in the list with the correct title, description, category,
+  and priority badge
+expected_result: A new task with the specified title, category, description, priority,
+  and optional due date is added to the task list

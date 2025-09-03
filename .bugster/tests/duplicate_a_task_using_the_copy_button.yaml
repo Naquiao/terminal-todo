@@ -1,0 +1,17 @@
+name: Duplicate a task using the copy button
+page: LiquidTerminalTodo
+page_path: app/page.tsx
+task: Verify that the user can duplicate an existing task using the copy functionality
+steps:
+- Navigate to the home page
+- Ensure there is at least one task in the list
+- Locate a task in the task list
+- Click the copy button (icon with two overlapping squares) next to the task
+- Verify that a duplicate of the task appears at the top of the list
+- Verify that the duplicated task has '(Copy)' appended to its text
+- Verify that the duplicated task maintains the same category, priority, and other
+  properties as the original
+- Verify that the duplicated task is marked as not completed even if the original
+  was completed
+expected_result: A copy of the task appears in the tasks list with the same details
+  plus "(Copy)" appended to the text

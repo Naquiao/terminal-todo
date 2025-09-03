@@ -6,5 +6,7 @@ steps:
 - Navigate to the home page
 - Find a task in the tasks list
 - Click the button with the text "Deleted" next to the task
-- Verify that the task is removed from the list
-expected_result: The task is removed from the tasks list
+- Verify that the task is removed from the list and not visible in the current filter
+  view
+expected_result: The task is removed from the tasks list and no longer visible in
+  the current filter view
