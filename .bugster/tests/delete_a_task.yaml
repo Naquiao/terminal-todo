@@ -1,11 +1,10 @@
 name: Delete a task
 page: /
 page_path: app/page.tsx
-task: Removing a task from the task list
+task: Deleting a task from the task list
 steps:
-- Load the homepage
-- Find an existing task in the list
-- Locate and click the delete/trash icon for that task
-- Confirm deletion if prompted
-- Verify the task is no longer present in the list
-expected_result: The task should be removed from the list and no longer visible
+- Navigate to the home page
+- Find a task in the tasks list
+- Click the delete (trash) icon next to the task
+- Verify that the task is removed from the list
+expected_result: The task is removed from the tasks list

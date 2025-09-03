@@ -1,0 +1,14 @@
+name: Create task with advanced options
+page: /
+page_path: app/page.tsx
+task: Creating a new task with advanced options like category and description
+steps:
+- Navigate to the home page
+- Click on the plus button to open the advanced task dialog
+- Enter a task title in the input field
+- Select a category from the dropdown
+- Add a description in the textarea
+- Click the save button
+- Verify the new task appears in the list with the correct category
+expected_result: A new task with the specified category and description is added to
+  the list

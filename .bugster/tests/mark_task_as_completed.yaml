@@ -1,12 +1,10 @@
 name: Mark task as completed
 page: /
 page_path: app/page.tsx
-task: Marking a task as completed using the checkbox
+task: Marking a task as completed
 steps:
-- Load the homepage
-- Find an uncompleted task in the list
+- Navigate to the home page
+- Find an uncompleted task in the tasks list
 - Click the checkbox next to the task
-- Verify the task is marked as completed with visual confirmation
-- Check if the task moves to a completed section or changes appearance
-expected_result: The task should be visually indicated as completed and moved to the
-  completed section if applicable
+- Verify the task is visually marked as completed
+expected_result: The task is visually marked as completed

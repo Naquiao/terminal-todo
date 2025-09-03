@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo, useCallback, memo } from "react"
+import React, { useState, useEffect, useMemo, useCallback, memo } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -23,6 +23,15 @@ import {
   Clock,
   Star,
   Archive,
+  Copy,
+  Zap,
+  Heart,
+  BookOpen,
+  Coffee,
+  Dumbbell,
+  Car,
+  Home,
+  ShoppingCart,
 } from "lucide-react"
 
 interface Task {
@@ -39,12 +48,152 @@ interface Task {
 type FilterType = "all" | "active" | "completed"
 type CategoryType = "personal" | "work" | "shopping" | "health" | "other"
 
+interface TaskTemplate {
+  id: string
+  name: string
+  text: string
+  description?: string
+  category: CategoryType
+  priority: "low" | "medium" | "high"
+  icon: any
+  tags?: string[]
+}
+
 const categories: { value: CategoryType; label: string; icon: any }[] = [
   { value: "personal", label: "Personal", icon: Star },
   { value: "work", label: "Work", icon: Code },
   { value: "shopping", label: "Shopping", icon: FolderOpen },
   { value: "health", label: "Health", icon: Clock },
   { value: "other", label: "Other", icon: Archive },
+]
+
+const taskTemplates: TaskTemplate[] = [
+  // Work templates
+  {
+    id: "weekly-review",
+    name: "Weekly Review",
+    text: "Conduct weekly review and planning",
+    description: "Review completed tasks, plan upcoming week, and set priorities",
+    category: "work",
+    priority: "medium",
+    icon: BookOpen,
+  },
+  {
+    id: "standup-prep",
+    name: "Daily Standup Prep",
+    text: "Prepare for daily standup meeting",
+    description: "Review yesterday's work, plan today's tasks, note any blockers",
+    category: "work",
+    priority: "low",
+    icon: Coffee,
+  },
+  {
+    id: "code-review",
+    name: "Code Review",
+    text: "Review team code submissions",
+    description: "Review pending pull requests and provide feedback",
+    category: "work",
+    priority: "medium",
+    icon: Code,
+  },
+
+  // Personal templates
+  {
+    id: "morning-routine",
+    name: "Morning Routine",
+    text: "Complete morning routine",
+    description: "Exercise, meditation, healthy breakfast, and daily planning",
+    category: "personal",
+    priority: "high",
+    icon: Star,
+  },
+  {
+    id: "family-time",
+    name: "Quality Family Time",
+    text: "Spend quality time with family",
+    description: "Disconnect from work and focus on family activities",
+    category: "personal",
+    priority: "high",
+    icon: Heart,
+  },
+  {
+    id: "learning-session",
+    name: "Learning Session",
+    text: "Dedicated learning/skill development",
+    description: "Read, take a course, or practice a new skill for 1 hour",
+    category: "personal",
+    priority: "medium",
+    icon: BookOpen,
+  },
+
+  // Health templates
+  {
+    id: "workout",
+    name: "Workout Session",
+    text: "Complete workout routine",
+    description: "30-60 minutes of physical exercise",
+    category: "health",
+    priority: "high",
+    icon: Dumbbell,
+  },
+  {
+    id: "meal-prep",
+    name: "Meal Prep",
+    text: "Prepare healthy meals for the week",
+    description: "Plan, shop for, and prepare nutritious meals",
+    category: "health",
+    priority: "medium",
+    icon: Coffee,
+  },
+  {
+    id: "meditation",
+    name: "Meditation",
+    text: "Daily meditation practice",
+    description: "10-20 minutes of mindfulness or meditation",
+    category: "health",
+    priority: "medium",
+    icon: Heart,
+  },
+
+  // Shopping templates
+  {
+    id: "grocery-run",
+    name: "Grocery Shopping",
+    text: "Buy groceries for the week",
+    description: "Shop for fresh produce, essentials, and planned meals",
+    category: "shopping",
+    priority: "medium",
+    icon: ShoppingCart,
+  },
+  {
+    id: "household-supplies",
+    name: "Household Supplies",
+    text: "Restock household essentials",
+    description: "Cleaning supplies, toiletries, and other household items",
+    category: "shopping",
+    priority: "low",
+    icon: Home,
+  },
+
+  // Other templates
+  {
+    id: "car-maintenance",
+    name: "Car Maintenance",
+    text: "Vehicle maintenance check",
+    description: "Oil change, tire pressure, and general vehicle inspection",
+    category: "other",
+    priority: "medium",
+    icon: Car,
+  },
+  {
+    id: "monthly-budget",
+    name: "Monthly Budget Review",
+    text: "Review and update monthly budget",
+    description: "Analyze expenses, update budget categories, plan for next month",
+    category: "other",
+    priority: "medium",
+    icon: Archive,
+  },
 ]
 
 // Custom hook for time management
@@ -100,6 +249,22 @@ const useTasks = () => {
     ))
   }, [])
 
+  const duplicateTask = useCallback((id: string) => {
+    setTasks(prev => {
+      const taskToDuplicate = prev.find(task => task.id === id)
+      if (!taskToDuplicate) return prev
+      
+      const duplicatedTask: Task = {
+        ...taskToDuplicate,
+        id: Date.now().toString(),
+        timestamp: new Date().toLocaleTimeString("en-US", { hour12: false }),
+        completed: false,
+        text: `${taskToDuplicate.text} (Copy)`,
+      }
+      return [duplicatedTask, ...prev]
+    })
+  }, [])
+
   const taskStats = useMemo(() => ({
     total: tasks.length,
     completed: tasks.filter(task => task.completed).length,
@@ -113,6 +278,7 @@ const useTasks = () => {
     toggleTask,
     deleteTask,
     updateTask,
+    duplicateTask,
     taskStats,
   }
 }
@@ -162,6 +328,80 @@ const StatsDashboard = memo(({ stats }: { stats: ReturnType<typeof useTasks>['ta
   </div>
 ))
 
+const TaskTemplateSelector = memo(({ 
+  onSelectTemplate, 
+  selectedCategory 
+}: {
+  onSelectTemplate: (template: TaskTemplate) => void
+  selectedCategory?: CategoryType | "all"
+}) => {
+  const filteredTemplates = useMemo(() => {
+    if (selectedCategory === "all" || !selectedCategory) {
+      return taskTemplates
+    }
+    return taskTemplates.filter(template => template.category === selectedCategory)
+  }, [selectedCategory])
+
+  const templatesByCategory = useMemo(() => {
+    const grouped = filteredTemplates.reduce((acc, template) => {
+      if (!acc[template.category]) {
+        acc[template.category] = []
+      }
+      acc[template.category].push(template)
+      return acc
+    }, {} as Record<CategoryType, TaskTemplate[]>)
+    return grouped
+  }, [filteredTemplates])
+
+  return (
+    <div className="backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl p-4 mb-6">
+      <div className="text-purple-400 text-sm mb-3 flex items-center">
+        <Zap className="w-4 h-4 mr-1" />
+        Quick Templates:
+      </div>
+      <div className="space-y-3">
+        {Object.entries(templatesByCategory).map(([category, templates]) => (
+          <div key={category}>
+            <div className="text-purple-300 text-xs uppercase tracking-wide mb-2 flex items-center">
+              {categories.find(cat => cat.value === category)?.icon && 
+                <span className="mr-1">{React.createElement(categories.find(cat => cat.value === category)!.icon, { className: "w-3 h-3" })}</span>
+              }
+              {category}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+              {templates.map((template) => {
+                const IconComponent = template.icon
+                return (
+                  <Button
+                    key={template.id}
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => onSelectTemplate(template)}
+                    className="text-left justify-start h-auto p-3 bg-black/20 hover:bg-purple-600/20 border border-white/10 hover:border-purple-400/30 transition-all duration-200"
+                  >
+                    <div className="flex items-start gap-2 w-full">
+                      <IconComponent className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <div className="text-white text-sm font-medium truncate">{template.name}</div>
+                        <div className="text-white/60 text-xs mt-1 line-clamp-2">{template.text}</div>
+                        <div className="flex items-center gap-1 mt-1">
+                          <div className={`text-xs px-1.5 py-0.5 rounded text-purple-300 bg-purple-600/20 border border-purple-500/30`}>
+                            {template.priority.toUpperCase()}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Button>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+})
+
 const AdvancedTaskDialog = memo(({ 
   isOpen, 
   onOpenChange, 
@@ -178,6 +418,16 @@ const AdvancedTaskDialog = memo(({
     priority: "medium" as "low" | "medium" | "high",
     dueDate: "",
   })
+
+  const handleTemplateSelect = useCallback((template: TaskTemplate) => {
+    setFormData({
+      text: template.text,
+      description: template.description || "",
+      category: template.category,
+      priority: template.priority,
+      dueDate: "",
+    })
+  }, [])
 
   const handleSubmit = useCallback(() => {
     if (formData.text.trim()) {
@@ -213,6 +463,29 @@ const AdvancedTaskDialog = memo(({
           <DialogTitle className="text-purple-400">Create Advanced Task</DialogTitle>
         </DialogHeader>
         <div className="space-y-4">
+          <div>
+            <label className="text-purple-400 text-sm mb-2 flex items-center">
+              <Zap className="w-4 h-4 mr-1" />
+              Quick Templates
+            </label>
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              {taskTemplates.slice(0, 6).map((template) => {
+                const IconComponent = template.icon
+                return (
+                  <Button
+                    key={template.id}
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleTemplateSelect(template)}
+                    className="text-left justify-start h-auto p-2 bg-black/20 hover:bg-purple-600/20 border border-white/10 hover:border-purple-400/30"
+                  >
+                    <IconComponent className="w-3 h-3 text-purple-400 mr-2 flex-shrink-0" />
+                    <span className="text-white text-xs truncate">{template.name}</span>
+                  </Button>
+                )
+              })}
+            </div>
+          </div>
           <div>  
             <label className="text-purple-400 text-sm mb-2 block">Task Title</label>
             <Input
@@ -395,13 +668,15 @@ const TaskItem = memo(({
   index, 
   onToggle, 
   onDelete, 
-  onUpdate 
+  onUpdate,
+  onDuplicate 
 }: {
   task: Task
   index: number
   onToggle: (id: string) => void
   onDelete: (id: string) => void
   onUpdate: (id: string, updates: Partial<Task>) => void
+  onDuplicate: (id: string) => void
 }) => {
   const [editingTask, setEditingTask] = useState<string | null>(null)
   const [editText, setEditText] = useState("")
@@ -528,14 +803,24 @@ const TaskItem = memo(({
 
         <div className="flex gap-1">
           {editingTask !== task.id && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={startEditing}
-              className="text-white/60 hover:text-white hover:bg-white/10"
-            >
-              <Edit3 className="w-4 h-4" />
-            </Button>
+            <>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={startEditing}
+                className="text-white/60 hover:text-white hover:bg-white/10"
+              >
+                <Edit3 className="w-4 h-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onDuplicate(task.id)}
+                className="text-white/60 hover:text-white hover:bg-white/10"
+              >
+                <Copy className="w-4 h-4" />
+              </Button>
+            </>
           )}
           <Button
             variant="ghost"
@@ -557,7 +842,8 @@ const TasksList = memo(({
   categoryFilter, 
   onToggle, 
   onDelete, 
-  onUpdate 
+  onUpdate,
+  onDuplicate 
 }: {
   tasks: Task[]
   filter: FilterType
@@ -565,6 +851,7 @@ const TasksList = memo(({
   onToggle: (id: string) => void
   onDelete: (id: string) => void
   onUpdate: (id: string, updates: Partial<Task>) => void
+  onDuplicate: (id: string) => void
 }) => {
   const filteredTasks = useMemo(() => {
     return tasks.filter((task) => {
@@ -598,6 +885,7 @@ const TasksList = memo(({
           onToggle={onToggle}
           onDelete={onDelete}
           onUpdate={onUpdate}
+          onDuplicate={onDuplicate}
         />
       ))}
     </div>
@@ -609,7 +897,7 @@ export default function LiquidTerminalTodo() {
   const [categoryFilter, setCategoryFilter] = useState<CategoryType | "all">("all")
   
   const currentTime = useCurrentTime()
-  const { tasks, addTask, toggleTask, deleteTask, updateTask, taskStats } = useTasks()
+  const { tasks, addTask, toggleTask, deleteTask, updateTask, duplicateTask, taskStats } = useTasks()
 
   const handleFilterChange = useCallback((newFilter: FilterType) => {
     setFilter(newFilter)
@@ -647,12 +935,58 @@ export default function LiquidTerminalTodo() {
 
           <StatsDashboard stats={taskStats} />
           <QuickAddTask onAddTask={addTask} />
+          <TaskTemplateSelector 
+            onSelectTemplate={(template) => addTask({
+              text: template.text,
+              description: template.description,
+              completed: false,
+              category: template.category,
+              priority: template.priority,
+            })}
+            selectedCategory={categoryFilter}
+          />
           <TaskFilters
             filter={filter}
             categoryFilter={categoryFilter}
             onFilterChange={handleFilterChange}
             onCategoryFilterChange={handleCategoryFilterChange}
           />
+          
+          {/* Category-specific quick actions */}
+          {categoryFilter !== "all" && (
+            <div className="backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl p-4 mb-6">
+              <div className="text-purple-400 text-sm mb-3 flex items-center">
+                <Zap className="w-4 h-4 mr-1" />
+                Quick Actions for {categories.find(cat => cat.value === categoryFilter)?.label}:
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {taskTemplates
+                  .filter(template => template.category === categoryFilter)
+                  .slice(0, 4)
+                  .map((template) => {
+                    const IconComponent = template.icon
+                    return (
+                      <Button
+                        key={template.id}
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => addTask({
+                          text: template.text,
+                          description: template.description,
+                          completed: false,
+                          category: template.category,
+                          priority: template.priority,
+                        })}
+                        className="bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-200 hover:text-white transition-all duration-200"
+                      >
+                        <IconComponent className="w-4 h-4 mr-2" />
+                        {template.name}
+                      </Button>
+                    )
+                  })}
+              </div>
+            </div>
+          )}
           <TasksList
             tasks={tasks}
             filter={filter}
@@ -660,6 +994,7 @@ export default function LiquidTerminalTodo() {
             onToggle={toggleTask}
             onDelete={deleteTask}
             onUpdate={updateTask}
+            onDuplicate={duplicateTask}
           />
 
           {/* Terminal Footer */}

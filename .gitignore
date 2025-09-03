@@ -41,3 +41,4 @@ next-env.d.ts
 .bugster/.env
 .bugster/paths.json
 .bugster/ui_config_cache.json
+
