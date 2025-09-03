@@ -1,0 +1,19 @@
+name: Test task duplication functionality
+page: Task Manager Home Page
+page_path: app/page.tsx
+task: Verify that a task can be duplicated with the copy button
+steps:
+- Navigate to the home page
+- Find an existing task in the task list
+- Locate the 'Copy' button (with copy icon) in the task item's action buttons section
+- Click the 'Copy' button
+- Verify that a duplicate task appears at the top of the list
+- Verify that the duplicated task has the same text as the original with '(Copy)'
+  appended
+- Verify that the duplicated task has the same category as the original
+- Verify that the duplicated task has the same priority as the original
+- Verify that the duplicated task is marked as incomplete (not completed) regardless
+  of the original task's status
+- Verify that the 'Remove' button is available for the duplicated task
+expected_result: The duplicated task should appear in the task list with '(Copy)'
+  appended to the text and maintaining all other properties except completion status
