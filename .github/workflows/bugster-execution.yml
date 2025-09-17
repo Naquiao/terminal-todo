@@ -1,0 +1,20 @@
+name: Run Bugster
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened]
+jobs:
+  # despues de haber hecho el deploy de la preview
+  trigger-bugster:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Notify Bugster (success deployment)
+        uses: Bugsterapp/bugster-action@v1
+        with:
+          bugster_api_key: ${{ secrets.BUGSTER_API_KEY }}
+          organization_id: "org_326dwEbIqm4lHV5WSplfpALbQZt"
+          project_id: "terminal-todo-1756745252"
+          environment_url: "https://terminal-todo-delta.vercel.app"
