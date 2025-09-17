@@ -5,7 +5,8 @@ task: Verify that a task can be duplicated with the copy button
 steps:
 - Navigate to the home page
 - Find an existing task in the task list
-- Locate the 'Copy' button (with copy icon) in the task item's action buttons section
+- Locate the 'Copy' button (with Copy icon) in the task item's action buttons section
+  on the right side
 - Click the 'Copy' button
 - Verify that a duplicate task appears at the top of the list
 - Verify that the duplicated task has the same text as the original with '(Copy)'
@@ -15,5 +16,7 @@ steps:
 - Verify that the duplicated task is marked as incomplete (not completed) regardless
   of the original task's status
 - Verify that the 'Remove' button is available for the duplicated task
-expected_result: The duplicated task should appear in the task list with '(Copy)'
-  appended to the text and maintaining all other properties except completion status
+expected_result: The duplicated task should appear at the top of the task list with
+  '(Copy)' appended to the text and maintain the same category and priority as the
+  original task, but always be marked as incomplete regardless of the original task's
+  status

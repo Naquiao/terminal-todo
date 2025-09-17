@@ -7,9 +7,11 @@ steps:
 - Find the quick add input with the '$' prefix
 - Type 'Buy groceries' in the input field
 - Click the 'Quick Add' button (or press Enter)
-- Verify that 'Buy groceries' appears in the tasks list
-- Verify the task has 'MEDIUM' priority label and 'Personal' category
-- Verify the 'Remove' button is available for the newly added task
+- Verify that 'Buy groceries' appears at the top of the tasks list
+- Verify the task has 'MEDIUM' priority badge
+- Verify the task has 'Personal' category badge
 - Verify the task can be marked as complete using the checkbox
-expected_result: The new task appears in the tasks list with the correct attributes
-  and a 'Remove' button
+- Verify the 'Remove' button is available in the task's action buttons section
+- Verify the 'Copy' button is available for duplicating the task
+expected_result: The new task appears at the top of the tasks list with the correct
+  category badge, priority level, and a 'Remove' button

@@ -8,7 +8,13 @@ steps:
 - Click on the category filter dropdown
 - Select a specific category (e.g., 'work', 'personal', 'health', etc.)
 - Verify that only tasks with the selected category are displayed in the task list
-- Verify that quick action templates specific to the selected category appear in a
-  section labeled 'Quick Actions for [Category]'
+- Verify that a new section labeled 'Quick Actions for [Category]' appears below the
+  filters
+- Verify that the quick action buttons in this section are specific to the selected
+  category
+- Verify that clicking a quick action button in this section adds a new task with
+  that template's properties
+- Verify that the added task has the correct category matching the filter
 expected_result: Only tasks matching the selected category are displayed, and quick
-  action templates for that category are shown
+  action templates specific to that category appear in a 'Quick Actions for [Category]'
+  section

@@ -1,0 +1,19 @@
+name: Test task duplication with copy button
+page: home
+page_path: app/page.tsx
+task: Test the task duplication functionality using the new Copy button
+steps:
+- Navigate to the home page
+- Create a new task by entering text in the quick add input field
+- Click the 'Quick Add' button to add the task
+- Verify the task appears in the task list
+- Find the 'Copy' button (with Copy icon) next to the task
+- Click the 'Copy' button
+- Verify a duplicate task appears at the top of the list
+- Verify the duplicated task has the same text as the original with '(Copy)' appended
+- Verify the duplicated task has the same category as the original
+- Verify the duplicated task has the same priority as the original
+- Verify the duplicated task is marked as incomplete regardless of the original task's
+  status
+expected_result: The task should be successfully duplicated with the same properties
+  but with '(Copy)' appended to the text
