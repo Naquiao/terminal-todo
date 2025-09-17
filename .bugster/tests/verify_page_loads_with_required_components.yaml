@@ -1,0 +1,14 @@
+name: Verify page loads with required components
+page: HomePage
+page_path: app/page.tsx
+task: Verify that the home page loads with all the required UI components
+steps:
+- Navigate to the home page
+- Verify the quick add input field with '$' prefix is visible
+- Verify the 'Quick Add' button is visible
+- Verify the 'Advanced' button to open the advanced task dialog is visible
+- Verify the task list section is present
+- Verify the Filters section with category filter is visible
+- Verify the Stats Dashboard displays the current task count
+expected_result: The home page should load successfully with all required components
+  including task input field, buttons, and task list
