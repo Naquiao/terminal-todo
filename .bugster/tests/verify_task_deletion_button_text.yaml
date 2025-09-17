@@ -9,5 +9,6 @@ steps:
 - Verify that the delete button displays 'Remove' text instead of a trash icon
 - Click the 'Remove' button
 - Verify that the task is removed from the list
+- Verify the task count in the Stats Dashboard is decreased by one
 expected_result: The button for deleting tasks should display the text 'Remove' instead
-  of a trash icon
+  of an icon

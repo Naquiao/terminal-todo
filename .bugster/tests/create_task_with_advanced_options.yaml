@@ -5,16 +5,19 @@ task: Creating a new task with advanced options like category and description
 steps:
 - Navigate to the home page
 - Click on the 'Advanced' button to open the advanced task dialog
-- Alternatively, you can select a template from the Quick Templates section if available
+- Alternatively, you can select a template from the 'Quick Templates' section that
+  appears in the dialog
 - Enter a task title in the input field
 - Add a description in the textarea
 - Select a category from the dropdown
 - Choose a priority level (low/medium/high)
 - Optionally set a due date
 - Click the 'Create Task' button
-- Verify the new task appears in the list with the correct title and description
-- Verify the task displays the correct category badge
+- Verify the new task appears at the top of the list with the correct title and description
+- Verify the task displays the correct category badge with the appropriate icon
 - Verify the task displays the correct priority level badge
-- Verify the delete button displays 'Remove' text
-expected_result: A new task with the specified category and description is added to
-  the list with the proper category badge and priority level
+- Verify task shows 'Remove' button instead of a trash icon
+- Verify the task can be toggled, duplicated, and removed
+expected_result: A new task with the specified title, description, category, priority,
+  and optionally due date is added to the list with the proper styling, category badge,
+  and priority level badge

@@ -7,8 +7,10 @@ steps:
 - Find an uncompleted task in the tasks list
 - Click the checkbox next to the task
 - Verify the task text has a purple strikethrough style
-- Verify a "DONE" badge appears in the task item
+- Verify a "DONE" badge appears in the task item's badges section
 - Verify the task remains in the list with the completed styling
 - Verify the "Remove" button is still available for the completed task
+- Verify the "Copy" button is still available which can create a duplicate of the
+  completed task
 expected_result: The task is visually marked as completed with text strikethrough
-  in purple color and a "DONE" badge appears
+  in purple color and a "DONE" badge appears next to other badges in the task item
