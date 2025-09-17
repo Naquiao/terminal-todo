@@ -1,0 +1,15 @@
+name: Add a new task
+page: /
+page_path: app/page.tsx
+task: Adding a new task through the quick add functionality
+steps:
+- Navigate to the home page
+- Find the quick add input with the '$' prefix
+- Type 'Buy groceries' in the input field
+- Click the 'Quick Add' button (or press Enter)
+- Verify that 'Buy groceries' appears in the tasks list
+- Verify the task has 'MEDIUM' priority label and 'Personal' category
+- Verify the 'Remove' button is available for the newly added task
+- Verify the task can be marked as complete using the checkbox
+expected_result: The new task appears in the tasks list with the correct attributes
+  and a 'Remove' button

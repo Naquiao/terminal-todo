@@ -1,0 +1,13 @@
+name: Verify task deletion button text
+page: Home page
+page_path: app/page.tsx
+task: Verify that the task deletion button displays 'Remove' text
+steps:
+- Navigate to the home page
+- Find a task in the task list
+- Locate the delete button in the task item's action buttons section
+- Verify that the delete button displays 'Remove' text instead of a trash icon
+- Click the 'Remove' button
+- Verify that the task is removed from the list
+expected_result: The button for deleting tasks should display the text 'Remove' instead
+  of a trash icon

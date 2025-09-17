@@ -1,0 +1,14 @@
+name: Mark task as completed
+page: /
+page_path: app/page.tsx
+task: Marking a task as completed
+steps:
+- Navigate to the home page
+- Find an uncompleted task in the tasks list
+- Click the checkbox next to the task
+- Verify the task text has a purple strikethrough style
+- Verify a "DONE" badge appears in the task item
+- Verify the task remains in the list with the completed styling
+- Verify the "Remove" button is still available for the completed task
+expected_result: The task is visually marked as completed with text strikethrough
+  in purple color and a "DONE" badge appears

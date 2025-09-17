@@ -1,0 +1,14 @@
+name: Filter tasks by category
+page: /
+page_path: app/page.tsx
+task: Filtering the task list by a specific category
+steps:
+- Navigate to the home page
+- Find the category filter in the Filters section with FolderOpen icon
+- Click on the category filter dropdown
+- Select a specific category (e.g., 'work', 'personal', 'health', etc.)
+- Verify that only tasks with the selected category are displayed in the task list
+- Verify that quick action templates specific to the selected category appear in a
+  section labeled 'Quick Actions for [Category]'
+expected_result: Only tasks matching the selected category are displayed, and quick
+  action templates for that category are shown
