@@ -17,4 +17,4 @@ jobs:
           bugster_api_key: ${{ secrets.BUGSTER_API_KEY }}
           organization_id: "org_326dwEbIqm4lHV5WSplfpALbQZt"
           project_id: "terminal-todo-1756745252"
-          environment_url: "https://terminal-todo-delta.vercel.app"
+          environment_url: "https://terminal-todo-delta.vercel.app" 
