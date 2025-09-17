@@ -9,7 +9,8 @@ steps:
 - Click the 'Quick Add' button (or press Enter)
 - Verify that 'Buy groceries' appears in the tasks list
 - Verify the task has 'MEDIUM' priority label and 'Personal' category
+- Verify the task includes the description field from the template
 - Verify the 'Remove' button is available for the newly added task
 - Verify the task can be marked as complete using the checkbox
 expected_result: The new task appears in the tasks list with the correct attributes
-  and a 'Remove' button
+  (including description) and a 'Remove' button
