@@ -15,7 +15,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 Your project is live at:
 
 **[https://vercel.com/naquiaos-projects/v0-liquid-glass-design](https://vercel.com/naquiaos-projects/v0-liquid-glass-design)**
-
+ 
 ## Build your app
 
 Continue building your app on:
