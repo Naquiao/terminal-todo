@@ -1,0 +1,16 @@
+name: Verify template description is added to new task
+page: Home Page
+page_path: app/page.tsx
+task: Verify that when a task is created from a template, the description from the
+  template is correctly applied to the new task
+steps:
+- Navigate to the home page
+- Find the Quick Templates section
+- Select a template with a description
+- Verify the task is created with the template's title
+- Verify the task is created with the correct category from the template
+- Verify the task is created with the correct priority from the template
+- Click on the task to expand details (if needed)
+- Verify the task contains the description text from the template
+- Verify the 'Remove' button is available for the newly created task
+expected_result: The new task should have the description from the template
