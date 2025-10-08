@@ -15,5 +15,6 @@ steps:
 - Verify that the duplicated task is marked as incomplete (not completed) regardless
   of the original task's status
 - Verify that the 'Remove' button is available for the duplicated task
+- Verify that the NeuralTask Nano Processor title is visible at the top of the page
 expected_result: The duplicated task should appear in the task list with '(Copy)'
   appended to the text and maintaining all other properties except completion status

@@ -4,6 +4,7 @@ page_path: app/page.tsx
 task: Creating a new task with advanced options like category and description
 steps:
 - Navigate to the home page
+- Note the new 'NEURALTASK NANO PROCESSOR' title at the top of the page
 - Click on the 'Advanced' button to open the advanced task dialog
 - Alternatively, you can select a template from the Quick Templates section if available
 - Enter a task title in the input field
@@ -17,4 +18,5 @@ steps:
 - Verify the task displays the correct priority level badge
 - Verify the delete button displays 'Remove' text
 expected_result: A new task with the specified category and description is added to
-  the list with the proper category badge and priority level
+  the list with the proper category badge and priority level under the new NEURALTASK
+  NANO PROCESSOR interface

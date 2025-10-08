@@ -4,10 +4,12 @@ page_path: app/page.tsx
 task: Verify that the task deletion button displays 'Remove' text
 steps:
 - Navigate to the home page
-- Find a task in the task list
+- Observe the new 'NEURALTASK NANO PROCESSOR' heading at the top of the page
+- Find a task in the task list below the new UI elements
 - Locate the delete button in the task item's action buttons section
 - Verify that the delete button displays 'Remove' text instead of a trash icon
 - Click the 'Remove' button
 - Verify that the task is removed from the list
+- Verify the task count in the Stats Dashboard is decreased by one
 expected_result: The button for deleting tasks should display the text 'Remove' instead
-  of a trash icon
+  of a trash icon and work correctly with the new Neural Task UI

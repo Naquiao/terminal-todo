@@ -1,0 +1,18 @@
+name: Verify display of NeuralTask main title
+page: home
+page_path: app/page.tsx
+task: Verify that the NeuralTask main title and subtitle are displayed properly
+steps:
+- Navigate to the home page
+- Observe the page header section
+- Verify the presence of the title 'NEURALTASK NANO PROCESSOR' in the header area
+- Confirm the title has a purple gradient color effect
+- Verify the presence of the subtitle text 'Optimizing productivity througccch advanced
+  task management protocols' below the main title
+- Confirm the subtitle has a light purple color and monospace font
+- Verify the legacy text 'Advanced Liquid Glass Terminal ToDo Manager v3.0.0' is still
+  present below
+- Verify the Stats Dashboard is still displayed below the title section
+expected_result: The main title "NEURALTASK NANO PROCESSOR" and subtitle "Optimizing
+  productivity througccch advanced task management protocols" are displayed with correct
+  styling

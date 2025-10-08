@@ -4,6 +4,7 @@ page_path: app/page.tsx
 task: Adding a new task through the quick add functionality
 steps:
 - Navigate to the home page
+- Notice the new 'NEURALTASK NANO PROCESSOR' title at the top of the page
 - Find the quick add input with the '$' prefix
 - Type 'Buy groceries' in the input field
 - Click the 'Quick Add' button (or press Enter)
