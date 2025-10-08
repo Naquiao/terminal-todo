@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "timestamp": 1759012339984,
+    "git": {
+      "branch": "naquiao/test/manual",
+      "commit": "d654a3195e922ad72e814976bdb953b334c09a14"
+    }
+  },
+  "data": {
+    "frameworks": [
+      {
+        "id": "next",
+        "name": "Next.js",
+        "dir_path": "/Users/nacho/Naquiao/terminal-todo/"
+      }
+    ],
+    "commands": {
+      "test": {
+        "firstExecuted": true
+      }
+    }
+  }
+}
