@@ -7,7 +7,9 @@ steps:
 - Find a task in the task list
 - Locate the delete button in the task item's action buttons section
 - Verify that the delete button displays 'Remove' text instead of a trash icon
+- Verify the button styling is consistent with the new Neural Task Processor UI
 - Click the 'Remove' button
 - Verify that the task is removed from the list
+- Verify the task count in the Stats Dashboard is decreased by one
 expected_result: The button for deleting tasks should display the text 'Remove' instead
-  of a trash icon
+  of a trash icon, consistent with the new Neural Task Processor UI

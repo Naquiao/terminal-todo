@@ -4,6 +4,7 @@ page_path: app/page.tsx
 task: Verify that a task can be duplicated with the copy button
 steps:
 - Navigate to the home page
+- Observe the 'NEURAL TASK PROCESSOR' title at the top of the page
 - Find an existing task in the task list
 - Locate the 'Copy' button (with copy icon) in the task item's action buttons section
 - Click the 'Copy' button
