@@ -3,11 +3,12 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened]
+    types: [labeled]
 jobs:
   # despues de haber hecho el deploy de la preview
   trigger-bugster:
     runs-on: ubuntu-latest
+    if: github.event.label.name == 'bugster'
     steps:
       - name: Trigger Bugster
         uses: Bugsterapp/bugster-action@v1
