@@ -4,6 +4,7 @@ page_path: app/page.tsx
 task: Filtering the task list by a specific category
 steps:
 - Navigate to the home page
+- Observe the 'NEURALTASK NANO PROCESSOR' title at the top of the page
 - Find the category filter in the Filters section with FolderOpen icon
 - Click on the category filter dropdown
 - Select a specific category (e.g., 'work', 'personal', 'health', etc.)

@@ -4,6 +4,7 @@ page_path: app/page.tsx
 task: Marking a task as completed
 steps:
 - Navigate to the home page
+- Observe the 'NEURALTASK NANO PROCESSOR' title at the top of the page
 - Find an uncompleted task in the tasks list
 - Click the checkbox next to the task
 - Verify the task text has a purple strikethrough style
