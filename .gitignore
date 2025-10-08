@@ -34,7 +34,7 @@ next-env.d.ts
 .bugster/reports/
 *.bugster.log
 .bugster/.analysis_state.json
-.bugster/project.json
+# .bugster/project.json
 .gitignore
 .bugster/next/analysis.json
 

@@ -933,6 +933,16 @@ export default function LiquidTerminalTodo() {
             <div className="text-white/60 text-xs mb-4">{">"} Advanced Liquid Glass Terminal ToDo Manager v3.0.0</div>
           </div>
 
+          {/* Main Title */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent mb-2">
+              NEURALTASK NANO PROCESSOR
+            </h1>
+            <div className="text-purple-400/70 text-sm font-mono">
+              {">"} Optimizing productivity througccch advanced task management protocols
+            </div>
+          </div>
+
           <StatsDashboard stats={taskStats} />
           <QuickAddTask onAddTask={addTask} />
           {/* <TaskTemplateSelector 

@@ -1,0 +1,85 @@
+{
+  "app/page.tsx": {
+    "path": "app/page.tsx",
+    "imports": {
+      "@/components/ui/input": {
+        "path": "components/ui/input.tsx",
+        "imports": {
+          "@/lib/utils": {
+            "path": "lib/utils.ts",
+            "imports": {},
+            "import_count": 0
+          }
+        },
+        "import_count": 1
+      },
+      "@/components/ui/button": {
+        "path": "components/ui/button.tsx",
+        "imports": {
+          "@/lib/utils": {
+            "path": "lib/utils.ts",
+            "imports": {},
+            "circular": true
+          }
+        },
+        "import_count": 1
+      },
+      "@/components/ui/checkbox": {
+        "path": "components/ui/checkbox.tsx",
+        "imports": {
+          "@/lib/utils": {
+            "path": "lib/utils.ts",
+            "imports": {},
+            "circular": true
+          }
+        },
+        "import_count": 1
+      },
+      "@/components/ui/badge": {
+        "path": "components/ui/badge.tsx",
+        "imports": {
+          "@/lib/utils": {
+            "path": "lib/utils.ts",
+            "imports": {},
+            "circular": true
+          }
+        },
+        "import_count": 1
+      },
+      "@/components/ui/select": {
+        "path": "components/ui/select.tsx",
+        "imports": {
+          "@/lib/utils": {
+            "path": "lib/utils.ts",
+            "imports": {},
+            "circular": true
+          }
+        },
+        "import_count": 1
+      },
+      "@/components/ui/dialog": {
+        "path": "components/ui/dialog.tsx",
+        "imports": {
+          "@/lib/utils": {
+            "path": "lib/utils.ts",
+            "imports": {},
+            "circular": true
+          }
+        },
+        "import_count": 1
+      },
+      "@/components/ui/textarea": {
+        "path": "components/ui/textarea.tsx",
+        "imports": {
+          "@/lib/utils": {
+            "path": "lib/utils.ts",
+            "imports": {},
+            "circular": true
+          }
+        },
+        "import_count": 1
+      }
+    },
+    "import_count": 7
+  }
+}
