@@ -939,7 +939,7 @@ export default function LiquidTerminalTodo() {
               NEURALTASK NANO PROCESSOR
             </h1>
             <div className="text-purple-400/70 text-sm font-mono">
-              {">"} Optimizing productivity through advanced task management protocols
+              {">"} Optimizing productivity througccch advanced task management protocols
             </div>
           </div>
 
