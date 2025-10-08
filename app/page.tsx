@@ -936,7 +936,7 @@ export default function LiquidTerminalTodo() {
           {/* Main Title */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent mb-2">
-              NEURAL TASK PROCESSOR
+              NEURAL TASK NANO PROCESSOR
             </h1>
             <div className="text-purple-400/70 text-sm font-mono">
               {">"} Optimizing productivity through advanced task management protocols
