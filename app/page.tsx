@@ -33,6 +33,7 @@ import {
   Home,
   ShoppingCart,
 } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 interface Task {
   id: string
@@ -298,7 +299,10 @@ const TerminalHeader = memo(({ currentTime }: { currentTime: string }) => (
           <span className="text-sm">~/dev/advanced-todo-manager</span>
         </div>
       </div>
-      <div className="text-purple-400 text-sm font-mono">{currentTime}</div>
+      <div className="flex items-center gap-4">
+        <div className="text-purple-400 text-sm font-mono">{currentTime}</div>
+        <ThemeToggle />
+      </div>
     </div>
   </div>
 ))
