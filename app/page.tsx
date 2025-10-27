@@ -155,8 +155,6 @@ const taskTemplates: TaskTemplate[] = [
     priority: "medium",
     icon: Heart,
   },
-
-  // Shopping templates
   {
     id: "grocery-run",
     name: "Grocery Shopping",
