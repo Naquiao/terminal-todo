@@ -938,7 +938,7 @@ export default function LiquidTerminalTodo() {
           {/* <TaskTemplateSelector 
             onSelectTemplate={(template) => addTask({
               text: template.text,
-              description: template.description,
+              description: template.description, 
               completed: false,
               category: template.category,
               priority: template.priority,
