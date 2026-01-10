@@ -1,0 +1,19 @@
+name: Verify Neural Task Processor title and subtitle display
+page: Home Page
+page_path: app/page.tsx
+task: Verify the Neural Task Processor title and subtitle are displayed correctly
+  on the home page
+steps:
+- Navigate to the home page
+- Observe the main title section at the top of the page
+- Verify that the title 'NEURAL TASK PROCESSOR' is displayed with a purple gradient
+  effect
+- Verify that the title has large font size (text-4xl) and bold styling
+- Verify that the subtitle '> Optimizing productivity through advanced task management
+  protocols' appears below the title
+- Verify that the subtitle is displayed in purple color with reduced opacity
+- Verify that the subtitle has monospace font styling
+- Verify that the legacy text 'Advanced Liquid Glass Terminal ToDo Manager v3.0.0'
+  still appears elsewhere on the page
+expected_result: The Neural Task Processor title is displayed with gradient styling
+  and the subtitle appears correctly below it
