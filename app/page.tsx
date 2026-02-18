@@ -32,6 +32,10 @@ import {
   Car,
   Home,
   ShoppingCart,
+  Command,
+  Layers,
+  ListTodo,
+  MoreHorizontal,
 } from "lucide-react"
 
 interface Task {
@@ -284,47 +288,68 @@ const useTasks = () => {
 }
 
 // Memoized components
-const TerminalHeader = memo(({ currentTime }: { currentTime: string }) => (
-  <div className="backdrop-blur-xl bg-white/5 border border-white/20 rounded-t-2xl p-4 mb-0">
+const AppHeader = memo(({ currentTime }: { currentTime: string }) => (
+  <div className="glass-card border-b border-white/10 rounded-t-2xl rounded-b-none p-6 mb-0">
     <div className="flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-white/60"></div>
-          <div className="w-3 h-3 rounded-full bg-white/40"></div>
-          <div className="w-3 h-3 rounded-full bg-white/20"></div>
-        </div>
-        <div className="flex items-center gap-2 text-purple-400">
-          <Terminal className="w-4 h-4" />
-          <span className="text-sm">~/dev/advanced-todo-manager</span>
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-500/30 flex items-center justify-center">
+            <ListTodo className="w-4 h-4 text-blue-400" />
+          </div>
+          <div>
+            <h1 className="text-xl font-semibold text-white">Tasks</h1>
+            <p className="text-xs text-gray-400">Organize your work efficiently</p>
+          </div>
         </div>
       </div>
-      <div className="text-purple-400 text-sm font-mono">{currentTime}</div>
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 text-gray-400 text-sm">
+          <Clock className="w-4 h-4" />
+          <span className="font-medium">{currentTime}</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+          <Command className="w-3.5 h-3.5 text-gray-400" />
+          <span className="text-xs text-gray-400">Press <kbd className="kbd">K</kbd> for shortcuts</span>
+        </div>
+      </div>
     </div>
   </div>
 ))
 
-const StatsCard = memo(({ icon: Icon, title, value }: { 
+const StatsCard = memo(({ icon: Icon, title, value, color = "blue" }: { 
   icon: any
   title: string
-  value: number 
-}) => (
-  <div className="backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl p-4 transition-all duration-300 hover:bg-white/10">
-    <div className="flex items-center gap-2">
-      <Icon className="w-5 h-5 text-purple-400" />
-      <div>
-        <div className="text-purple-400 text-sm">{title}</div>
-        <div className="text-white text-2xl font-bold">{value}</div>
+  value: number
+  color?: string
+}) => {
+  const colorClasses = {
+    blue: "from-blue-500/10 to-blue-500/5 border-blue-500/20 text-blue-400",
+    green: "from-green-500/10 to-green-500/5 border-green-500/20 text-green-400",
+    gray: "from-gray-500/10 to-gray-500/5 border-gray-500/20 text-gray-400",
+    indigo: "from-indigo-500/10 to-indigo-500/5 border-indigo-500/20 text-indigo-400"
+  }[color]
+
+  return (
+    <div className={`backdrop-blur-sm bg-gradient-to-br ${colorClasses} border rounded-lg p-4 transition-all duration-200 hover:scale-[1.02] group cursor-pointer`}>
+      <div className="flex items-start justify-between">
+        <div className="space-y-1">
+          <div className="text-gray-400 text-xs font-medium uppercase tracking-wider">{title}</div>
+          <div className="text-white text-3xl font-semibold tracking-tight">{value}</div>
+        </div>
+        <div className={`p-2 rounded-lg bg-white/5 border border-white/10 group-hover:scale-110 transition-transform`}>
+          <Icon className="w-4 h-4" />
+        </div>
       </div>
     </div>
-  </div>
-))
+  )
+})
 
 const StatsDashboard = memo(({ stats }: { stats: ReturnType<typeof useTasks>['taskStats'] }) => (
-  <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-    <StatsCard icon={Code} title="Total Tasks" value={stats.total} />
-    <StatsCard icon={CheckCircle2} title="Completed" value={stats.completed} />
-    <StatsCard icon={Circle} title="Active" value={stats.active} />
-    <StatsCard icon={Star} title="Categories" value={stats.categories} />
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+    <StatsCard icon={Layers} title="Total" value={stats.total} color="blue" />
+    <StatsCard icon={CheckCircle2} title="Completed" value={stats.completed} color="green" />
+    <StatsCard icon={Circle} title="Active" value={stats.active} color="gray" />
+    <StatsCard icon={FolderOpen} title="Categories" value={stats.categories} color="indigo" />
   </div>
 ))
 
@@ -453,22 +478,22 @@ const AdvancedTaskDialog = memo(({
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold border border-purple-500/50">
-          <Plus className="w-4 h-4 mr-1" />
-          Advanced
+        <Button className="bg-white/[0.08] hover:bg-white/[0.12] text-white font-medium border border-white/10 h-11 px-5 rounded-lg">
+          <MoreHorizontal className="w-4 h-4 mr-2" />
+          More Options
         </Button>
       </DialogTrigger>
-      <DialogContent className="bg-black/90 backdrop-blur-xl border-white/20 text-white">
+      <DialogContent className="bg-gray-950/95 backdrop-blur-xl border-white/10 text-white max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="text-purple-400">Create Advanced Task</DialogTitle>
+          <DialogTitle className="text-xl font-semibold text-white">Create New Task</DialogTitle>
         </DialogHeader>
-        <div className="space-y-4">
+        <div className="space-y-5">
           <div>
-            <label className="text-purple-400 text-sm mb-2 flex items-center">
-              <Zap className="w-4 h-4 mr-1" />
+            <label className="text-blue-400 text-sm font-medium mb-3 flex items-center">
+              <Zap className="w-4 h-4 mr-2" />
               Quick Templates
             </label>
-            <div className="grid grid-cols-2 gap-2 mb-4">
+            <div className="grid grid-cols-3 gap-2">
               {taskTemplates.slice(0, 6).map((template) => {
                 const IconComponent = template.icon
                 return (
@@ -477,9 +502,9 @@ const AdvancedTaskDialog = memo(({
                     variant="ghost"
                     size="sm"
                     onClick={() => handleTemplateSelect(template)}
-                    className="text-left justify-start h-auto p-2 bg-black/20 hover:bg-purple-600/20 border border-white/10 hover:border-purple-400/30"
+                    className="text-left justify-start h-auto p-3 bg-white/[0.03] hover:bg-blue-600/10 border border-white/10 hover:border-blue-500/30 transition-all"
                   >
-                    <IconComponent className="w-3 h-3 text-purple-400 mr-2 flex-shrink-0" />
+                    <IconComponent className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" />
                     <span className="text-white text-xs truncate">{template.name}</span>
                   </Button>
                 )
@@ -487,69 +512,79 @@ const AdvancedTaskDialog = memo(({
             </div>
           </div>
           <div>  
-            <label className="text-purple-400 text-sm mb-2 block">Task Title</label>
+            <label className="text-gray-300 text-sm font-medium mb-2 block">Task Title</label>
             <Input
               value={formData.text}
               onChange={(e) => setFormData(prev => ({ ...prev, text: e.target.value }))}
-              placeholder="Enter task title..."
-              className="bg-black/30 border-white/20 text-white placeholder:text-white/40 focus:border-purple-400"
+              placeholder="What needs to be done?"
+              className="bg-white/[0.03] border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 h-11"
             />
           </div>
           <div>
-            <label className="text-purple-400 text-sm mb-2 block">Description</label>
+            <label className="text-gray-300 text-sm font-medium mb-2 block">Description</label>
             <Textarea
               value={formData.description}
               onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-              placeholder="Enter task description..."
-              className="bg-black/30 border-white/20 text-white placeholder:text-white/40 focus:border-purple-400"
+              placeholder="Add more details..."
+              className="bg-white/[0.03] border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 min-h-[100px] resize-none"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-purple-400 text-sm mb-2 block">Category</label>
+              <label className="text-gray-300 text-sm font-medium mb-2 block">Category</label>
               <Select
                 value={formData.category}
                 onValueChange={(value: CategoryType) => setFormData(prev => ({ ...prev, category: value }))}
               >
-                <SelectTrigger className="bg-black/30 border-white/20 text-white">
+                <SelectTrigger className="bg-white/[0.03] border-white/10 text-white h-11">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-black/90 backdrop-blur-xl border-white/20">
-                  {categories.map((cat) => (
-                    <SelectItem key={cat.value} value={cat.value} className="text-white hover:bg-white/10">
-                      {cat.label}
-                    </SelectItem>
-                  ))}
+                <SelectContent className="bg-gray-950/95 backdrop-blur-xl border-white/10">
+                  {categories.map((cat) => {
+                    const Icon = cat.icon
+                    return (
+                      <SelectItem key={cat.value} value={cat.value} className="text-white hover:bg-white/10">
+                        <div className="flex items-center gap-2">
+                          <Icon className="w-4 h-4" />
+                          {cat.label}
+                        </div>
+                      </SelectItem>
+                    )
+                  })}
                 </SelectContent>
               </Select>
             </div>
             <div>
-              <label className="text-purple-400 text-sm mb-2 block">Priority</label>
+              <label className="text-gray-300 text-sm font-medium mb-2 block">Priority</label>
               <Select
                 value={formData.priority}
                 onValueChange={(value: "low" | "medium" | "high") => setFormData(prev => ({ ...prev, priority: value }))}
               >
-                <SelectTrigger className="bg-black/30 border-white/20 text-white">
+                <SelectTrigger className="bg-white/[0.03] border-white/10 text-white h-11">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-black/90 backdrop-blur-xl border-white/20">
-                  <SelectItem value="low" className="text-white hover:bg-white/10">Low</SelectItem>
-                  <SelectItem value="medium" className="text-white hover:bg-white/10">Medium</SelectItem>
-                  <SelectItem value="high" className="text-white hover:bg-white/10">High</SelectItem>
+                <SelectContent className="bg-gray-950/95 backdrop-blur-xl border-white/10">
+                  <SelectItem value="low" className="text-white hover:bg-white/10">Low Priority</SelectItem>
+                  <SelectItem value="medium" className="text-white hover:bg-white/10">Medium Priority</SelectItem>
+                  <SelectItem value="high" className="text-white hover:bg-white/10">High Priority</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
           <div>
-            <label className="text-purple-400 text-sm mb-2 block">Due Date</label>
+            <label className="text-gray-300 text-sm font-medium mb-2 block">Due Date</label>
             <Input
               type="date"
               value={formData.dueDate}
               onChange={(e) => setFormData(prev => ({ ...prev, dueDate: e.target.value }))}
-              className="bg-black/30 border-white/20 text-white focus:border-purple-400"
+              className="bg-white/[0.03] border-white/10 text-white focus:border-blue-500/50 h-11"
             />
           </div>
-          <Button onClick={handleSubmit} className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+          <Button 
+            onClick={handleSubmit} 
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white h-11 font-medium"
+            disabled={!formData.text.trim()}
+          >
             Create Task
           </Button>
         </div>
@@ -575,17 +610,18 @@ const QuickAddTask = memo(({ onAddTask }: { onAddTask: (task: Omit<Task, 'id' | 
   }, [newTask, onAddTask])
 
   return (
-    <div className="backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl p-4 mb-6">
-      <div className="text-purple-400 text-sm mb-2">{">"} Quick add task:</div>
-      <div className="flex gap-2">
-        <div className="flex-1 relative">
-          <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 text-sm">$</span>
+    <div className="glass-card p-4 mb-6">
+      <div className="flex gap-3">
+        <div className="flex-1 relative group">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
+            <Plus className="w-4 h-4 text-gray-400 group-focus-within:text-blue-400 transition-colors" />
+          </div>
           <Input
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleQuickAdd()}
-            placeholder="Enter task description..."
-            className="pl-8 bg-black/30 border-white/20 text-white placeholder:text-white/40 focus:border-purple-400 font-mono"
+            placeholder="Add a new task... (Press Enter)"
+            className="pl-10 bg-white/[0.03] border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:bg-white/[0.05] h-11 rounded-lg transition-all"
           />
         </div>
         <AdvancedTaskDialog 
@@ -595,10 +631,11 @@ const QuickAddTask = memo(({ onAddTask }: { onAddTask: (task: Omit<Task, 'id' | 
         />
         <Button
           onClick={handleQuickAdd}
-          className="bg-purple-600 hover:bg-purple-700 text-white font-semibold border border-purple-500/50"
+          disabled={!newTask.trim()}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-medium border-0 h-11 px-5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <Plus className="w-4 h-4 mr-1" />
-          Quick Add
+          <Plus className="w-4 h-4 mr-2" />
+          Add Task
         </Button>
       </div>
     </div>
@@ -616,47 +653,49 @@ const TaskFilters = memo(({
   onFilterChange: (filter: FilterType) => void
   onCategoryFilterChange: (category: CategoryType | "all") => void
 }) => (
-  <div className="flex flex-wrap gap-4 mb-6">
+  <div className="flex flex-wrap items-center gap-3 mb-6">
     <div className="flex items-center gap-2">
-      <div className="text-purple-400 text-sm flex items-center">
-        <Filter className="w-4 h-4 mr-1" />
-        Status:
-      </div>
-      <div className="flex gap-2">
+      <span className="text-gray-400 text-sm font-medium">View:</span>
+      <div className="flex gap-1 p-1 bg-white/[0.03] border border-white/10 rounded-lg">
         {(["all", "active", "completed"] as FilterType[]).map((filterType) => (
           <Button
             key={filterType}
-            variant={filter === filterType ? "default" : "ghost"}
+            variant="ghost"
             size="sm"
             onClick={() => onFilterChange(filterType)}
-            className={`font-mono text-xs transition-all duration-200 ${
+            className={`text-xs font-medium transition-all duration-200 px-3 h-8 rounded-md ${
               filter === filterType
-                ? "bg-purple-600 text-white border border-purple-500/50"
-                : "text-white/60 hover:text-white hover:bg-white/10 border border-white/20"
+                ? "bg-blue-600/20 text-blue-400 border border-blue-500/30"
+                : "text-gray-400 hover:text-white hover:bg-white/5 border-0"
             }`}
           >
-            {filterType.toUpperCase()}
+            {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
           </Button>
         ))}
       </div>
     </div>
 
+    <div className="h-5 w-px bg-white/10" />
+
     <div className="flex items-center gap-2">
-      <div className="text-purple-400 text-sm flex items-center">
-        <FolderOpen className="w-4 h-4 mr-1" />
-        Category:
-      </div>
+      <span className="text-gray-400 text-sm font-medium">Category:</span>
       <Select value={categoryFilter} onValueChange={onCategoryFilterChange}>
-        <SelectTrigger className="w-32 bg-black/30 border-white/20 text-white text-xs">
+        <SelectTrigger className="w-36 bg-white/[0.03] border-white/10 text-white text-sm h-9 rounded-lg hover:bg-white/[0.05] transition-all">
           <SelectValue />
         </SelectTrigger>
-        <SelectContent className="bg-black/90 backdrop-blur-xl border-white/20">
-          <SelectItem value="all" className="text-white hover:bg-white/10">All</SelectItem>
-          {categories.map((cat) => (
-            <SelectItem key={cat.value} value={cat.value} className="text-white hover:bg-white/10">
-              {cat.label}
-            </SelectItem>
-          ))}
+        <SelectContent className="bg-gray-950/95 backdrop-blur-xl border-white/10">
+          <SelectItem value="all" className="text-white hover:bg-white/10 focus:bg-white/10">All Categories</SelectItem>
+          {categories.map((cat) => {
+            const Icon = cat.icon
+            return (
+              <SelectItem key={cat.value} value={cat.value} className="text-white hover:bg-white/10 focus:bg-white/10">
+                <div className="flex items-center gap-2">
+                  <Icon className="w-4 h-4" />
+                  {cat.label}
+                </div>
+              </SelectItem>
+            )
+          })}
         </SelectContent>
       </Select>
     </div>
@@ -681,6 +720,7 @@ const TaskItem = memo(({
   const [editingTask, setEditingTask] = useState<string | null>(null)
   const [editText, setEditText] = useState("")
   const [editDescription, setEditDescription] = useState("")
+  const [isHovered, setIsHovered] = useState(false)
 
   const startEditing = useCallback(() => {
     setEditingTask(task.id)
@@ -706,10 +746,10 @@ const TaskItem = memo(({
 
   const getPriorityColor = useCallback((priority: string) => {
     switch (priority) {
-      case "high": return "text-purple-300"
-      case "medium": return "text-purple-400"
-      case "low": return "text-purple-500"
-      default: return "text-purple-400"
+      case "high": return { bg: "bg-red-500/10", border: "border-red-500/30", text: "text-red-400" }
+      case "medium": return { bg: "bg-yellow-500/10", border: "border-yellow-500/30", text: "text-yellow-400" }
+      case "low": return { bg: "bg-green-500/10", border: "border-green-500/30", text: "text-green-400" }
+      default: return { bg: "bg-gray-500/10", border: "border-gray-500/30", text: "text-gray-400" }
     }
   }, [])
 
@@ -719,96 +759,100 @@ const TaskItem = memo(({
   }, [])
 
   const CategoryIcon = getCategoryIcon(task.category)
+  const priorityColors = getPriorityColor(task.priority)
 
   return (
     <div
-      className={`backdrop-blur-sm border rounded-xl p-4 transition-all duration-300 hover:scale-[1.01] transform ${
-        task.completed
-          ? "bg-white/10 border-white/30"
-          : "bg-white/5 border-white/20 hover:border-purple-400/50 hover:bg-white/10"
-      }`}
+      className={`task-card p-4 group ${task.completed ? "opacity-60" : ""}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-start gap-3">
-        <div className="flex items-center gap-2 mt-1">
-          <span className="text-white/40 text-xs font-mono">{String(index + 1).padStart(2, "0")}</span>
+        <div className="flex items-center gap-3 pt-0.5">
           <Checkbox
             checked={task.completed}
             onCheckedChange={() => onToggle(task.id)}
-            className="border-white/30 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-500"
+            className="border-gray-600 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 rounded-md w-5 h-5"
           />
         </div>
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 space-y-2">
           {editingTask === task.id ? (
-            <div className="space-y-2">
+            <div className="space-y-3">
               <Input
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
-                className="bg-black/30 border-white/20 text-white focus:border-purple-400"
+                className="bg-white/[0.03] border-white/10 text-white focus:border-blue-500/50 h-10"
+                autoFocus
               />
               <Textarea
                 value={editDescription}
                 onChange={(e) => setEditDescription(e.target.value)}
-                placeholder="Description..."
-                className="bg-black/30 border-white/20 text-white focus:border-purple-400"
+                placeholder="Add description..."
+                className="bg-white/[0.03] border-white/10 text-white focus:border-blue-500/50 min-h-[80px] resize-none"
               />
               <div className="flex gap-2">
-                <Button size="sm" onClick={saveEdit} className="bg-purple-600 hover:bg-purple-700">
-                  <Save className="w-3 h-3 mr-1" />
+                <Button 
+                  size="sm" 
+                  onClick={saveEdit} 
+                  className="bg-blue-600 hover:bg-blue-700 text-white border-0 h-8"
+                >
+                  <Save className="w-3.5 h-3.5 mr-1.5" />
                   Save
                 </Button>
                 <Button
                   size="sm"
                   variant="ghost"
                   onClick={cancelEdit}
-                  className="text-white/60 hover:text-white"
+                  className="text-gray-400 hover:text-white hover:bg-white/5 h-8"
                 >
-                  <X className="w-3 h-3 mr-1" />
                   Cancel
                 </Button>
               </div>
             </div>
           ) : (
             <>
-              <div className={`font-mono ${task.completed ? "text-purple-400 line-through" : "text-white"}`}>
+              <div className={`text-[15px] leading-relaxed ${task.completed ? "text-gray-500 line-through" : "text-white"}`}>
                 {task.text}
               </div>
-              {task.description && <div className="text-white/70 text-sm mt-1">{task.description}</div>}
-              <div className="flex items-center gap-2 mt-2 flex-wrap">
-                <Badge variant="outline" className="text-xs border-white/20 text-white/60">
-                  {task.timestamp}
+              {task.description && (
+                <div className="text-gray-400 text-sm leading-relaxed">
+                  {task.description}
+                </div>
+              )}
+              <div className="flex items-center gap-2 flex-wrap">
+                <Badge 
+                  variant="outline" 
+                  className={`text-xs font-medium ${priorityColors.bg} ${priorityColors.border} ${priorityColors.text} border`}
+                >
+                  {task.priority}
                 </Badge>
-                <Badge className={`text-xs bg-purple-600/20 border-purple-500/30 ${getPriorityColor(task.priority)}`}>
-                  {task.priority.toUpperCase()}
-                </Badge>
-                <Badge variant="outline" className="text-xs border-white/20 text-purple-400 flex items-center gap-1">
+                <Badge variant="outline" className="text-xs border-white/10 text-gray-400 flex items-center gap-1.5 font-normal">
                   <CategoryIcon className="w-3 h-3" />
                   {categories.find((c) => c.value === task.category)?.label}
                 </Badge>
                 {task.dueDate && (
-                  <Badge variant="outline" className="text-xs border-white/20 text-white/60 flex items-center gap-1">
+                  <Badge variant="outline" className="text-xs border-white/10 text-gray-400 flex items-center gap-1.5 font-normal">
                     <Clock className="w-3 h-3" />
                     {new Date(task.dueDate).toLocaleDateString()}
                   </Badge>
                 )}
-                {task.completed && (
-                  <Badge className="text-xs bg-purple-600/20 text-purple-400 border-purple-500/30">
-                    DONE
-                  </Badge>
-                )}
+                <Badge variant="outline" className="text-xs border-white/10 text-gray-500 font-normal">
+                  {task.timestamp}
+                </Badge>
               </div>
             </>
           )}
         </div>
 
-        <div className="flex gap-1">
+        <div className={`flex items-center gap-1 transition-opacity ${isHovered || editingTask === task.id ? "opacity-100" : "opacity-0"}`}>
           {editingTask !== task.id && (
             <>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={startEditing}
-                className="text-white/60 hover:text-white hover:bg-white/10"
+                className="text-gray-400 hover:text-white hover:bg-white/10 h-8 w-8 p-0"
               >
                 <Edit3 className="w-4 h-4" />
               </Button>
@@ -816,20 +860,20 @@ const TaskItem = memo(({
                 variant="ghost"
                 size="sm"
                 onClick={() => onDuplicate(task.id)}
-                className="text-white/60 hover:text-white hover:bg-white/10"
+                className="text-gray-400 hover:text-white hover:bg-white/10 h-8 w-8 p-0"
               >
                 <Copy className="w-4 h-4" />
               </Button>
+              <Button 
+                variant="ghost"
+                size="sm" 
+                onClick={() => onDelete(task.id)}
+                className="text-gray-400 hover:text-red-400 hover:bg-red-500/10 h-8 w-8 p-0"
+              >
+                <Trash2 className="w-4 h-4" />
+              </Button>
             </>
           )}
-          <Button 
-            variant="ghost"
-            size="sm" 
-            onClick={() => onDelete(task.id)}
-            className="text-white/60 hover:text-white hover:bg-white/10"
-          >
-            Remove
-          </Button>
         </div>
       </div>
     </div>
@@ -864,11 +908,14 @@ const TasksList = memo(({
 
   if (filteredTasks.length === 0) {
     return (
-      <div className="text-center py-12">
-        <div className="text-white/60 text-lg mb-2">{">"} No tasks found</div>
-        <div className="text-white/40 text-sm">
+      <div className="text-center py-16">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mb-4">
+          <CheckCircle2 className="w-8 h-8 text-gray-400" />
+        </div>
+        <div className="text-white text-lg font-medium mb-2">No tasks found</div>
+        <div className="text-gray-400 text-sm">
           {filter === "all" && categoryFilter === "all"
-            ? "Add your first task above"
+            ? "Create your first task to get started"
             : `No ${filter !== "all" ? filter : ""} ${categoryFilter !== "all" ? categoryFilter : ""} tasks`}
         </div>
       </div>
@@ -876,7 +923,7 @@ const TasksList = memo(({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {filteredTasks.map((task, index) => (
         <TaskItem
           key={task.id}
@@ -908,43 +955,22 @@ export default function LiquidTerminalTodo() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black p-4 font-mono">
-      {/* Animated background elements */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black p-6">
+      {/* Subtle animated background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0.5s" }}></div>
       </div>
 
-      <div className="relative max-w-6xl mx-auto">
-        <TerminalHeader currentTime={currentTime} />
+      <div className="relative max-w-5xl mx-auto">
+        <AppHeader currentTime={currentTime} />
 
         {/* Main Container */}
-        <div className="backdrop-blur-xl bg-white/10 border-x border-white/20 rounded-b-2xl p-6 shadow-2xl">
-          {/* Terminal Prompt */}
-          <div className="mb-6">
-            <div className="text-purple-400 text-sm mb-2">
-              <span className="text-purple-300">user@machine</span>
-              <span className="text-white">:</span>
-              <span className="text-purple-400">~/todo</span>
-              <span className="text-white">$ </span>
-              <span className="text-purple-200">./advanced-todo-manager --interactive --features=all</span>
-            </div>
-            <div className="text-white/60 text-xs mb-4">{">"} Advanced Liquid Glass Terminal ToDo Manager v3.0.0</div>
-          </div>
-
+        <div className="glass-card border-t-0 rounded-t-none rounded-b-2xl p-8 shadow-2xl">
           <StatsDashboard stats={taskStats} />
           <QuickAddTask onAddTask={addTask} />
-          {/* <TaskTemplateSelector 
-            onSelectTemplate={(template) => addTask({
-              text: template.text,
-              description: template.description,
-              completed: false,
-              category: template.category,
-              priority: template.priority,
-            })}
-            selectedCategory={categoryFilter}
-          /> */}
+          
           <TaskFilters
             filter={filter}
             categoryFilter={categoryFilter}
@@ -954,10 +980,10 @@ export default function LiquidTerminalTodo() {
           
           {/* Category-specific quick actions */}
           {categoryFilter !== "all" && (
-            <div className="backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl p-4 mb-6">
-              <div className="text-purple-400 text-sm mb-3 flex items-center">
-                <Zap className="w-4 h-4 mr-1" />
-                Quick Actions for {categories.find(cat => cat.value === categoryFilter)?.label}:
+            <div className="glass-card p-4 mb-6">
+              <div className="text-blue-400 text-sm font-medium mb-3 flex items-center">
+                <Zap className="w-4 h-4 mr-2" />
+                Quick Actions for {categories.find(cat => cat.value === categoryFilter)?.label}
               </div>
               <div className="flex flex-wrap gap-2">
                 {taskTemplates
@@ -977,7 +1003,7 @@ export default function LiquidTerminalTodo() {
                           category: template.category,
                           priority: template.priority,
                         })}
-                        className="bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-200 hover:text-white transition-all duration-200"
+                        className="bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-300 hover:text-blue-200 transition-all duration-200 h-9"
                       >
                         <IconComponent className="w-4 h-4 mr-2" />
                         {template.name}
@@ -987,6 +1013,7 @@ export default function LiquidTerminalTodo() {
               </div>
             </div>
           )}
+          
           <TasksList
             tasks={tasks}
             filter={filter}
@@ -997,12 +1024,24 @@ export default function LiquidTerminalTodo() {
             onDuplicate={duplicateTask}
           />
 
-          {/* Terminal Footer */}
-          <div className="mt-6 pt-4 border-t border-white/20">
-            <div className="text-white/40 text-xs font-mono">
-              {">"} Session active • Advanced features enabled • Type 'help' for commands
+          {/* Footer */}
+          {tasks.length > 0 && (
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <div className="flex items-center justify-between text-xs text-gray-500">
+                <div className="flex items-center gap-4">
+                  <span>{tasks.length} total task{tasks.length !== 1 ? 's' : ''}</span>
+                  <span>•</span>
+                  <span>{taskStats.completed} completed</span>
+                  <span>•</span>
+                  <span>{taskStats.active} active</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>Keyboard shortcuts:</span>
+                  <kbd className="kbd">⌘K</kbd>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
