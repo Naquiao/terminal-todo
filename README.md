@@ -12,7 +12,7 @@
 This report compares the performance of two Large Language Models (LLMs) for browser automation tasks using the Playwright Model Context Protocol (MCP) interface.
 
 ### Models Evaluated
-
+ 
 | Model | Provider | Parameter Count | Interface |
 |-------|----------|-----------------|-----------|
 | **gpt-oss-120b** | Groq | 120 Billion | Playwright MCP |
