@@ -72,7 +72,6 @@ const categories: { value: CategoryType; label: string; icon: any }[] = [
 ]
 
 const taskTemplates: TaskTemplate[] = [
-  // Work templates
   {
     id: "weekly-review",
     name: "Weekly Review",
