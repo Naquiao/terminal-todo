@@ -10,7 +10,7 @@
 ## Executive Summary
 
 This report compares the performance of two Large Language Models (LLMs) for browser automation tasks using the Playwright Model Context Protocol (MCP) interface.
- 
+  
 ### Models Evaluated
 
 | Model | Provider | Parameter Count | Interface |
