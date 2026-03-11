@@ -31,7 +31,7 @@ This report compares the performance of two Large Language Models (LLMs) for bro
 
 ### 🏆 Clear Winner: qwen3-32b
 
-The `qwen3-32b` model significantly outperforms `gpt-oss-120b` across all metrics, despite having **3.75x fewer parameters**. This demonstrates that model size alone does not determine browser automation effectiveness.
+The `qwen3-32b` model significantly outperforms `gpt-oss-120b` across all metrics, despite having **3.75x fewer  parameters**. This demonstrates that model size alone does not determine browser automation effectiveness.
 
 ---
 
