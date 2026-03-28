@@ -2,7 +2,7 @@
 
 **Generated:** December 10, 2025  
 **Test Suite:** Cal.com End-to-End Tests  
-**Evaluation Framework:** Bugster Evals with Playwright MCP  
+**Evaluation Framework:**     Evals with Playwright MCP  
 **Base URL:** https://app.cal.com  
 
 ---
